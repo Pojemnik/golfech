@@ -10,7 +10,7 @@ var start_vector = null;
 var current_vector = Vector2.ZERO;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("lmb"):
+	if Input.is_action_just_pressed("lmb") and sleeping:
 		start_vector = get_viewport().get_mouse_position()
 	
 	if (start_vector):
@@ -19,6 +19,6 @@ func _process(delta: float) -> void:
 	else:
 		$Line2D.points = []
 	
-	if Input.is_action_just_released("lmb") and current_vector:
+	if Input.is_action_just_released("lmb") and start_vector:
 		apply_impulse(-current_vector)
 		start_vector = null;
