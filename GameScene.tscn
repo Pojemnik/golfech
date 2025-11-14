@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://drw3t28r5xep0"]
+
+[ext_resource type="Texture2D" uid="uid://4i27goxt5wdu" path="res://icon.svg" id="1_eqhe0"]
+[ext_resource type="Script" uid="uid://ckfhh2dky166s" path="res://ball.gd" id="1_k77ap"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k77ap"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f24su"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqhe0"]
+size = Vector2(20, 120)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(14, -13)
+physics_material_override = SubResource("PhysicsMaterial_k77ap")
+gravity_scale = 0.0
+linear_damp = 1.0
+script = ExtResource("1_k77ap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_f24su")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_eqhe0")
+
+[node name="Line2D" type="Line2D" parent="Ball"]
+points = PackedVector2Array(0, 0, 50, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(77, -34)
+rotation = -0.67284924
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_eqhe0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
