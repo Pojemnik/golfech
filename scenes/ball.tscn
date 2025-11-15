@@ -19,6 +19,9 @@ max_contacts_reported = 1
 linear_damp = 1.0
 script = ExtResource("1_41u45")
 max_force_input = 20.0
+height_ratio = -0.03
+max_height_diff = 0.5
+max_rolling_speed = 60.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_f24su")

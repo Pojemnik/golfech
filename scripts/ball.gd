@@ -2,6 +2,9 @@ extends RigidBody2D
 
 @export var spawnpoint: Node2D;
 @export var max_force_input: float;
+@export var height_ratio: float;
+@export var max_height_diff: float;
+@export var max_rolling_speed: float;
 
 var start_vector = null;
 var current_vector = Vector2.ZERO;
@@ -9,6 +12,7 @@ var teleported = false;
 var tools_manager: Tools;
 var last_sleep_state: bool = true;
 var rolling: bool = false;
+var ball_sprite: Sprite2D;
 
 func respawn() -> void:
 	teleport(spawnpoint.position)
@@ -35,6 +39,7 @@ func stop() -> void:
 
 func _ready() -> void:
 	respawn();
+	ball_sprite = $Ball;
 	tools_manager = get_node("/root/Main/ToolsManager");
 	
 
@@ -60,6 +65,7 @@ func _physics_process(delta: float) -> void:
 		GameManager.increase_hit_count();
 		rolling = false;
 	last_sleep_state = sleeping;
+	handle_height();
 
 
 func _on_body_entered(body: Node) -> void:
@@ -82,3 +88,12 @@ func _on_body_entered(body: Node) -> void:
 func flag_hit():
 	print("Flag hit");
 	GameManager.on_flag_reached();
+
+func handle_height():
+	var target_height = linear_velocity.length() * height_ratio;
+	print(linear_velocity.length());
+	if linear_velocity.length() < max_rolling_speed:
+		target_height = 0;
+	var diff = target_height - ball_sprite.position.y;
+	var x = sign(diff) * min(max_height_diff, abs(diff));
+	ball_sprite.position.y = ball_sprite.position.y + x;
