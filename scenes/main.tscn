@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cir3h3iqn2nq0"]
+[gd_scene load_steps=36 format=3 uid="uid://cir3h3iqn2nq0"]
 
 [ext_resource type="Shader" uid="uid://2kmpm3nsa0yf" path="res://hpx.gdshader" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://scripts/level_loader.gd" id="2_h2yge"]
@@ -6,7 +6,11 @@
 [ext_resource type="Resource" path="res://level_data/TestLevel.tres" id="4_85g3d"]
 [ext_resource type="Resource" uid="uid://cjryyp7eb0nfl" path="res://level_data/Level1.tres" id="4_tefeu"]
 [ext_resource type="Resource" uid="uid://25ggux654l50" path="res://level_data/Level2.tres" id="5_tipki"]
+[ext_resource type="Resource" uid="uid://ck18hjmkeg2w7" path="res://level_data/level_bunker_path.tres" id="6_2f3dj"]
 [ext_resource type="Resource" uid="uid://boo4t0v5pd1ih" path="res://level_data/Level3.tres" id="6_85g3d"]
+[ext_resource type="Resource" uid="uid://i2qiua06hbfc" path="res://level_data/level_empty.tres" id="6_og1vs"]
+[ext_resource type="Resource" uid="uid://1v8algajwytv" path="res://level_data/level_ocean.tres" id="6_vxglm"]
+[ext_resource type="Resource" uid="uid://cinc60f6ydud1" path="res://level_data/level_central_wall.tres" id="7_2wyq8"]
 [ext_resource type="Resource" uid="uid://uxo1ccn85mqg" path="res://level_data/Level4.tres" id="7_choun"]
 [ext_resource type="Script" uid="uid://b7b5aswqoe1vu" path="res://scripts/tools.gd" id="7_o6xl0"]
 [ext_resource type="Shader" uid="uid://diq3nytyo0g6r" path="res://scenes/label.gdshader" id="11_0ld40"]
@@ -20,8 +24,12 @@
 [ext_resource type="Texture2D" uid="uid://2sfmfusnwfqk" path="res://tex/chipper.png" id="13_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://d2xsat0wfcqm4" path="res://tex/chipper_selected.png" id="14_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://dd3yi3ybc60h8" path="res://tex/paintbrush.png" id="15_jbj1t"]
+[ext_resource type="Resource" uid="uid://cfmgehiwxq6n2" path="res://level_data/level_house.tres" id="15_yq6so"]
+[ext_resource type="Resource" uid="uid://brvfk51pifj0b" path="res://level_data/level_fortress.tres" id="16_fv21b"]
 [ext_resource type="Texture2D" uid="uid://beowg2r3or33c" path="res://tex/grass_button.png" id="17_dp3eg"]
+[ext_resource type="Resource" uid="uid://b0iuj3ru1claw" path="res://level_data/level_desert.tres" id="17_tel4y"]
 [ext_resource type="Texture2D" uid="uid://c2l8vhv8wxmjv" path="res://tex/bunker_button.png" id="18_0ld40"]
+[ext_resource type="Resource" uid="uid://bnu02bxmuusvt" path="res://level_data/level_smile.tres" id="18_qkpxi"]
 [ext_resource type="Texture2D" uid="uid://c7ehntm5xx4od" path="res://tex/water_button.png" id="22_y6deb"]
 [ext_resource type="Texture2D" uid="uid://bm75w04a1f5rk" path="res://tex/wall_button.png" id="23_og1vs"]
 
@@ -51,7 +59,7 @@ color = Color(1, 0.71573704, 0.53279096, 1)
 
 [node name="ToolsManager" type="Node" parent="." node_paths=PackedStringArray("chipper", "driver", "paintbrush", "grass_button", "bunker_button", "wall_button", "water_button")]
 script = ExtResource("7_o6xl0")
-bat_forces = Array[float]([10.0, 20.0])
+bat_forces = Array[float]([20.0, 10.0])
 chipper = NodePath("../UiViewport/SubViewport/Control/Chipper")
 driver = NodePath("../UiViewport/SubViewport/Control/Driver")
 paintbrush = NodePath("../UiViewport/SubViewport/Control/Paintbrush")
@@ -90,7 +98,7 @@ handle_input_locally = false
 size = Vector2i(112, 112)
 render_target_update_mode = 4
 script = ExtResource("2_h2yge")
-levels = Array[ExtResource("3_tbgi4")]([ExtResource("4_85g3d"), ExtResource("4_tefeu"), ExtResource("5_tipki"), ExtResource("6_85g3d"), ExtResource("7_choun")])
+levels = Array[ExtResource("3_tbgi4")]([ExtResource("5_tipki"), ExtResource("18_qkpxi"), ExtResource("17_tel4y"), ExtResource("16_fv21b"), ExtResource("15_yq6so"), ExtResource("6_2f3dj"), ExtResource("6_vxglm"), ExtResource("6_og1vs"), ExtResource("7_2wyq8"), ExtResource("4_85g3d"), ExtResource("4_tefeu"), ExtResource("6_85g3d"), ExtResource("7_choun")])
 
 [node name="UiViewport" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_choun")

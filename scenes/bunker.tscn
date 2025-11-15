@@ -9,4 +9,5 @@ linear_damp = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_k77ap")
+disabled = true
 debug_color = Color(0.64447296, 0.52305865, 0, 0.41960785)

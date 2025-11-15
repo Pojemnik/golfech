@@ -29,7 +29,7 @@ max_rolling_speed = 60.0
 shape = SubResource("CircleShape2D_f24su")
 
 [node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(0, 0, 50, 0)
+points = PackedVector2Array(0, 0, 0, 0)
 width = 2.0
 default_color = Color(1, 0.2, 0.2627451, 1)
 
