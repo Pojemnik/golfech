@@ -49,23 +49,34 @@ func _process(delta: float) -> void:
 var vertical_valocity = 0.0;
 var vertical_height = 0.0;
 
-func _process_movement():
-	if Input.is_action_just_pressed("lmb") and !rolling and !tools_manager.selected_brush:
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("lmb") and !rolling and tools_manager.selected_tool == 'club':
 		start_vector = get_viewport().get_mouse_position();
 	
-	if start_vector and !tools_manager.selected_brush:
+	if start_vector and tools_manager.selected_tool == 'club':
 		current_vector = (get_viewport().get_mouse_position() - start_vector);
 		current_vector = current_vector.normalized() * clamp(current_vector.length(), 0, max_force_input)
 		$Line2D.points = [Vector2.ZERO, current_vector];
 	else:
 		$Line2D.points = [];
-	
-	if Input.is_action_just_released("lmb") and start_vector and !tools_manager.selected_brush:
+		
+	if event.is_action_released("lmb") and start_vector and tools_manager.selected_tool == "club":
 		var impulse = -current_vector * tools_manager.get_current_bat_force()
 		apply_impulse(impulse);
 		rolling = true;
 		start_vector = null;
 		vertical_valocity = 0.002 * impulse.length()
+		
+	if event.is_action_released("lmb"):
+		start_vector = null
+		
+	if event.is_action_pressed("restart_level"):
+		respawn();
+		GameManager.set_hit_count(0);
+
+func _process_movement():
+	pass
 
 
 func _physics_process(delta: float) -> void:
@@ -95,7 +106,6 @@ func _on_body_entered(body: Node) -> void:
 
 
 func flag_hit():
-	print("Flag hit");
 	GameManager.on_flag_reached();
 
 
@@ -103,9 +113,3 @@ func handle_height(delta: float):
 	vertical_height = max(vertical_height + vertical_valocity, 0.0)
 	vertical_valocity -= delta * 4.0
 	ball_sprite.position.y = -vertical_height
-
-
-func _input(event):
-	if event.is_action_pressed("restart_level"):
-		respawn();
-		GameManager.set_hit_count(0);

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cir3h3iqn2nq0"]
+[gd_scene load_steps=25 format=3 uid="uid://cir3h3iqn2nq0"]
 
 [ext_resource type="Shader" path="res://hpx.gdshader" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://scripts/level_loader.gd" id="2_h2yge"]
@@ -9,10 +9,12 @@
 [ext_resource type="Resource" uid="uid://boo4t0v5pd1ih" path="res://level_data/Level3.tres" id="6_85g3d"]
 [ext_resource type="Resource" uid="uid://uxo1ccn85mqg" path="res://level_data/Level4.tres" id="7_choun"]
 [ext_resource type="Script" uid="uid://b7b5aswqoe1vu" path="res://scripts/tools.gd" id="7_o6xl0"]
-[ext_resource type="Shader" path="res://scenes/label.gdshader" id="11_0ld40"]
+[ext_resource type="Shader" uid="uid://diq3nytyo0g6r" path="res://scenes/label.gdshader" id="11_0ld40"]
+[ext_resource type="Script" uid="uid://bgv67k1wrjs52" path="res://scenes/ui_viewport.gd" id="11_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://bokutfbfm2gd1" path="res://ase/easel.png" id="11_ya4ey"]
 [ext_resource type="FontFile" uid="uid://nbruq80r2xme" path="res://m5x7.ttf" id="12_0ld40"]
 [ext_resource type="Texture2D" uid="uid://cabhpl2exoi3s" path="res://tex/driver.png" id="12_trceg"]
+[ext_resource type="Script" uid="uid://bw0qt1recwgpl" path="res://scenes/sub_viewport.gd" id="12_yc10j"]
 [ext_resource type="Texture2D" uid="uid://c2dos2y4jb1ep" path="res://tex/driver_selected.png" id="13_a8y0u"]
 [ext_resource type="Script" uid="uid://dbrpw63o7glhx" path="res://scenes/hit_counter.gd" id="13_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://2sfmfusnwfqk" path="res://tex/chipper.png" id="13_jkv2x"]
@@ -90,11 +92,14 @@ levels = Array[ExtResource("3_tbgi4")]([ExtResource("4_85g3d"), ExtResource("4_t
 material = SubResource("ShaderMaterial_choun")
 layout_mode = 0
 scale = Vector2(5, 5)
+script = ExtResource("11_gqmmt")
 
-[node name="SubViewport" type="SubViewport" parent="UiViewport"]
+[node name="SubViewport" type="SubViewport" parent="UiViewport" node_paths=PackedStringArray("vp")]
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 4
+script = ExtResource("12_yc10j")
+vp = NodePath("../../SubViewportContainer/SubViewport")
 
 [node name="Control" type="Control" parent="UiViewport/SubViewport"]
 layout_mode = 3
@@ -103,6 +108,7 @@ offset_left = -8.2
 offset_top = 29.0
 offset_right = 179.79999
 offset_bottom = 140.99998
+mouse_filter = 1
 
 [node name="HitCounter" type="Label" parent="UiViewport/SubViewport/Control"]
 material = SubResource("ShaderMaterial_yc10j")
@@ -143,6 +149,7 @@ offset_left = 143.0
 offset_top = 32.999996
 offset_right = 183.0
 offset_bottom = 73.0
+mouse_filter = 2
 theme_override_constants/separation = 1
 
 [node name="Grass" type="TextureButton" parent="UiViewport/SubViewport/Control/VBoxContainer"]

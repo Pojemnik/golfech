@@ -5,7 +5,7 @@ func _ready() -> void:
 	tools_manager = get_node("/root/Main/ToolsManager");
 
 func _process(delta: float) -> void:
-	if not tools_manager.selected_brush:
+	if not tools_manager.selected_tool == "brush":
 		return
 	
 	if Input.is_action_pressed("lmb"):
