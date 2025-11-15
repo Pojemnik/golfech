@@ -13,6 +13,8 @@ radius = 2.0
 [node name="Ball" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_k77ap")
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
 linear_damp = 1.0
 script = ExtResource("1_41u45")
 
@@ -27,3 +29,5 @@ default_color = Color(1, 0.2, 0.2627451, 1)
 [node name="Ball" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_ktgx5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

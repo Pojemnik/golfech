@@ -9,7 +9,7 @@ var teleported = false;
 
 func respawn() -> void:
 	teleport(spawnpoint.position)
-	linear_velocity = Vector2.ZERO;
+	stop();
 	teleported = false;
 	
 
@@ -22,6 +22,10 @@ func teleport(pos: Vector2):
 			Transform2D.IDENTITY.translated(pos)
 		);
 
+func stop() -> void:
+	linear_velocity = Vector2.ZERO;
+	angular_velocity = 0;
+	
 
 func _ready() -> void:
 	respawn();
@@ -44,5 +48,13 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("sticky"):
-		linear_velocity = Vector2.ZERO;
-		
+		var dir = -linear_velocity.normalized()
+		var from = global_position - dir * 5;
+		var to = from + dir * 10.0
+		var query_params = PhysicsRayQueryParameters2D.create(from, to, 0xFFFFFFFF, [get_rid()]);
+			
+		var result = get_world_2d().direct_space_state.intersect_ray(query_params);
+		if result:
+			global_position = result.position - dir * 2
+			
+		stop()

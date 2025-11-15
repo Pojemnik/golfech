@@ -5,7 +5,7 @@ extends Area2D
 var ball;
 var disable = false;
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if ball:
 		var distance_squared = (global_position - ball.global_position).length_squared();
 		var f = (global_position - ball.global_position).normalized() * force * delta * (1.0 / distance_squared);
