@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cir3h3iqn2nq0"]
+[gd_scene load_steps=10 format=3 uid="uid://cir3h3iqn2nq0"]
 
 [ext_resource type="Shader" path="res://hpx.gdshader" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://bhoi4dhhi2nh5" path="res://scenes/levels/Level1.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://scripts/level_loader.gd" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://jy4dwp4l4gor" path="res://scenes/levels/Level2.tscn" id="4_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://diq7x8l08nkb8" path="res://scenes/levels/Level3.tscn" id="5_272bh"]
-[ext_resource type="PackedScene" uid="uid://b27yoieqat8ht" path="res://scenes/levels/Level4.tscn" id="6_5vw27"]
+[ext_resource type="Script" uid="uid://cl52acjotwrwi" path="res://scripts/level_data.gd" id="3_tbgi4"]
+[ext_resource type="Resource" uid="uid://cjryyp7eb0nfl" path="res://level_data/Level1.tres" id="4_tefeu"]
+[ext_resource type="Resource" uid="uid://25ggux654l50" path="res://level_data/Level2.tres" id="5_tipki"]
+[ext_resource type="Resource" uid="uid://boo4t0v5pd1ih" path="res://level_data/Level3.tres" id="6_85g3d"]
+[ext_resource type="Resource" uid="uid://uxo1ccn85mqg" path="res://level_data/Level4.tres" id="7_choun"]
 [ext_resource type="Script" uid="uid://b7b5aswqoe1vu" path="res://scripts/tools.gd" id="7_o6xl0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
@@ -30,7 +31,7 @@ scale = Vector2(6, 6)
 handle_input_locally = false
 render_target_update_mode = 4
 script = ExtResource("2_h2yge")
-levels = Array[PackedScene]([ExtResource("2_0xm2m"), ExtResource("4_o6xl0"), ExtResource("5_272bh"), ExtResource("6_5vw27")])
+levels = Array[ExtResource("3_tbgi4")]([ExtResource("4_tefeu"), ExtResource("5_tipki"), ExtResource("6_85g3d"), ExtResource("7_choun")])
 
 [node name="ToolsManager" type="Node" parent="."]
 script = ExtResource("7_o6xl0")

@@ -1,7 +1,7 @@
 extends SubViewport
 
 var level: Node = null;
-@export var levels: Array[PackedScene]
+@export var levels: Array[LevelData]
 var current_level_idx = null;
 var flags;
 
@@ -21,8 +21,8 @@ func load_level(level_idx: int):
 		return;
 	if level:
 		level.queue_free();
-	var instance = levels[level_idx].instantiate();
-	print("Load level ", levels[level_idx].resource_path);
+	var instance = levels[level_idx].scene.instantiate();
+	print("Load level ", levels[level_idx].scene.resource_path);
 	call_deferred("add_child", instance);
 	level = instance;
 	current_level_idx = level_idx;
