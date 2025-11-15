@@ -8,6 +8,7 @@ func _ready() -> void:
 
 var start_vector = null;
 var current_vector = Vector2.ZERO;
+var teleported = false;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("lmb") and sleeping:

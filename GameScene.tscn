@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://drw3t28r5xep0"]
+[gd_scene load_steps=8 format=3 uid="uid://drw3t28r5xep0"]
 
 [ext_resource type="Texture2D" uid="uid://4i27goxt5wdu" path="res://icon.svg" id="1_eqhe0"]
 [ext_resource type="Script" uid="uid://ckfhh2dky166s" path="res://ball.gd" id="1_k77ap"]
+[ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://bunker.tscn" id="3_haeiw"]
+[ext_resource type="PackedScene" uid="uid://bil7klfgsihs8" path="res://wormhole.tscn" id="4_b5kf5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k77ap"]
 friction = 0.0
@@ -40,3 +42,16 @@ shape = SubResource("RectangleShape2D_eqhe0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="Bunker" parent="." instance=ExtResource("3_haeiw")]
+position = Vector2(56, 47)
+
+[node name="Wormhole2" parent="." node_paths=PackedStringArray("output") instance=ExtResource("4_b5kf5")]
+position = Vector2(-75, -15)
+output = NodePath("../Wormhole")
+
+[node name="Wormhole" parent="." node_paths=PackedStringArray("output") instance=ExtResource("4_b5kf5")]
+position = Vector2(-80, -68)
+output = NodePath("../Wormhole2")
+
+[connection signal="body_exited" from="Wormhole" to="Wormhole" method="_on_body_exited"]
