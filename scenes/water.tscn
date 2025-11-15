@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbdteh5tvv4sh"]
+
+[ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://scripts/water.gd" id="1_bdk6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2arf"]
+
+[node name="Water" type="Area2D" groups=["water"]]
+script = ExtResource("1_bdk6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_i2arf")
+debug_color = Color(0, 0.54405063, 0.9461834, 0.41960785)

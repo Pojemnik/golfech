@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cir3h3iqn2nq0"]
+[gd_scene load_steps=9 format=3 uid="uid://cir3h3iqn2nq0"]
 
 [ext_resource type="Shader" path="res://hpx.gdshader" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bhoi4dhhi2nh5" path="res://scenes/levels/Level1.tscn" id="2_0xm2m"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://jy4dwp4l4gor" path="res://scenes/levels/LevelTest.tscn" id="4_7mycd"]
 [ext_resource type="PackedScene" uid="uid://diq7x8l08nkb8" path="res://scenes/levels/Level3.tscn" id="5_272bh"]
 [ext_resource type="PackedScene" uid="uid://b27yoieqat8ht" path="res://scenes/levels/Level4.tscn" id="6_5vw27"]
+[ext_resource type="Script" uid="uid://b7b5aswqoe1vu" path="res://scripts/tools.gd" id="7_o6xl0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
 shader = ExtResource("1_0xm2m")
@@ -30,3 +31,7 @@ handle_input_locally = false
 render_target_update_mode = 4
 script = ExtResource("2_h2yge")
 levels = Array[PackedScene]([ExtResource("2_0xm2m"), ExtResource("4_7mycd"), ExtResource("5_272bh"), ExtResource("6_5vw27")])
+
+[node name="ToolsManager" type="Node" parent="."]
+script = ExtResource("7_o6xl0")
+bat_forces = Array[float]([10.0, 20.0])

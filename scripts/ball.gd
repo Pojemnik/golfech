@@ -1,10 +1,13 @@
 extends RigidBody2D
 
 @export var spawnpoint: Node2D;
+@export var max_force_input: float;
+@export var bat_force: float;
 
 var start_vector = null;
 var current_vector = Vector2.ZERO;
 var teleported = false;
+var tools_manager: Tools;
 
 
 func respawn() -> void:
@@ -29,20 +32,22 @@ func stop() -> void:
 
 func _ready() -> void:
 	respawn();
+	tools_manager = get_node("/root/Main/ToolsManager");
 	
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("lmb") and sleeping:
+	if Input.is_action_just_pressed("lmb") and sleeping and !tools_manager.selected_brush:
 		start_vector = get_viewport().get_mouse_position();
 	
-	if (start_vector):
+	if start_vector and !tools_manager.selected_brush:
 		current_vector = (get_viewport().get_mouse_position() - start_vector);
+		current_vector = current_vector.normalized() * clamp(current_vector.length(), 0, max_force_input)
 		$Line2D.points = [Vector2.ZERO, current_vector];
 	else:
 		$Line2D.points = [];
 	
-	if Input.is_action_just_released("lmb") and start_vector:
-		apply_impulse(-current_vector);
+	if Input.is_action_just_released("lmb") and start_vector and !tools_manager.selected_brush:
+		apply_impulse(-current_vector * tools_manager.get_current_bat_force());
 		start_vector = null;
 
 
@@ -58,3 +63,6 @@ func _on_body_entered(body: Node) -> void:
 			global_position = result.position - dir * 2
 			
 		stop()
+	
+	if body.is_in_group("water"):
+		respawn();

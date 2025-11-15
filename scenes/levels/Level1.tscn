@@ -1,16 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhoi4dhhi2nh5"]
+[gd_scene load_steps=10 format=3 uid="uid://bhoi4dhhi2nh5"]
 
 [ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_wwdpc"]
 [ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://scenes/ball.tscn" id="3_nc7oo"]
 [ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://scenes/bunker.tscn" id="4_6x3wt"]
+[ext_resource type="PackedScene" uid="uid://dbdteh5tvv4sh" path="res://scenes/water.tscn" id="5_76cw8"]
 [ext_resource type="PackedScene" uid="uid://bil7klfgsihs8" path="res://scenes/wormhole.tscn" id="5_3453u"]
-[ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://scripts/water.gd" id="6_46pvi"]
 [ext_resource type="PackedScene" uid="uid://cdhr8fbix5ilj" path="res://scenes/flag.tscn" id="6_lmyl5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqhe0"]
 size = Vector2(20, 120)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2arf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qnej"]
 size = Vector2(8, 8)
@@ -30,6 +28,8 @@ position = Vector2(104, 7)
 [node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") instance=ExtResource("3_nc7oo")]
 position = Vector2(104, 7)
 spawnpoint = NodePath("../Spawnpoint")
+max_force_input = 20.0
+bat_force = 2.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(145, -32.000004)
@@ -49,12 +49,8 @@ output = NodePath("../Wormhole")
 position = Vector2(-80, -68)
 output = NodePath("../Wormhole2")
 
-[node name="Water" type="Area2D" parent="."]
+[node name="Water" parent="." instance=ExtResource("5_76cw8")]
 position = Vector2(-59, 40)
-script = ExtResource("6_46pvi")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
-shape = SubResource("RectangleShape2D_i2arf")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(88, 20)
@@ -166,4 +162,3 @@ shape = SubResource("WorldBoundaryShape2D_8qnej")
 position = Vector2(59, 57)
 
 [connection signal="body_exited" from="Wormhole" to="Wormhole" method="_on_body_exited"]
-[connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
