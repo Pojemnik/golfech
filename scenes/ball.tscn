@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dv3jvvqi837e3"]
+[gd_scene load_steps=6 format=3 uid="uid://dv3jvvqi837e3"]
 
 [ext_resource type="Script" uid="uid://ckfhh2dky166s" path="res://scripts/ball.gd" id="1_41u45"]
+[ext_resource type="Texture2D" uid="uid://dudcad3qnopsm" path="res://tex/ball_shadow.png" id="2_f7cbr"]
 [ext_resource type="Texture2D" uid="uid://8ewvrwenv2sg" path="res://tex/ball.png" id="2_ktgx5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k77ap"]
@@ -26,6 +27,11 @@ shape = SubResource("CircleShape2D_f24su")
 points = PackedVector2Array(0, 0, 50, 0)
 width = 2.0
 default_color = Color(1, 0.2, 0.2627451, 1)
+
+[node name="BallShadow" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 1)
+texture = ExtResource("2_f7cbr")
 
 [node name="Ball" type="Sprite2D" parent="."]
 texture_filter = 1

@@ -29,6 +29,7 @@ scale = Vector2(6, 6)
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
+size = Vector2i(112, 112)
 render_target_update_mode = 4
 script = ExtResource("2_h2yge")
 levels = Array[ExtResource("3_tbgi4")]([ExtResource("4_tefeu"), ExtResource("5_tipki"), ExtResource("6_85g3d"), ExtResource("7_choun")])

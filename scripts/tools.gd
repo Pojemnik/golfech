@@ -5,7 +5,7 @@ class_name Tools
 
 var selected_brush: bool = false;
 var selected_bat: int;
-var selected_paint: int;
+var selected_paint: Vector2i;
 
 #signal brush_selected;
 #signal bat_selected(bat_idx: int);
@@ -13,11 +13,15 @@ var selected_paint: int;
 
 func _input(event):
 	if event.is_action_pressed("select_brush"):
-		select_brush();
+		select_brush()
 	elif event.is_action_pressed("select_bat_1"):
-		select_bat(0);
+		select_bat(0)
 	elif event.is_action_pressed("select_bat_2"):
-		select_bat(1);
+		select_bat(1)
+	elif event.is_action_pressed("select_paint_grass"):
+		select_paint(Vector2i(0,0))
+	elif event.is_action_pressed("select_paint_bunker"):
+		select_paint(Vector2i(1,0))
 
 
 func _ready():
@@ -34,11 +38,13 @@ func select_bat(idx: int):
 func get_current_bat_force():
 	return bat_forces[selected_bat];
 
+func get_current_paint():
+	return selected_paint
 
 func select_brush():
 	selected_brush = true;
 	print("Selected brush");
 
-
-func select_paint(idx: int):
-	pass;
+func select_paint(idx: Vector2i):
+	selected_paint = idx
+	print("Selected paint");
