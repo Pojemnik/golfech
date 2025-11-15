@@ -120,9 +120,9 @@ texture_pressed = ExtResource("14_jbj1t")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UiViewport/SubViewport/Control"]
 layout_mode = 0
-offset_left = 137.0
+offset_left = 143.0
 offset_top = 32.999996
-offset_right = 177.0
+offset_right = 183.0
 offset_bottom = 73.0
 theme_override_constants/separation = 1
 
