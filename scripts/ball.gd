@@ -66,7 +66,7 @@ func _input(event: InputEvent) -> void:
 		apply_impulse(impulse);
 		rolling = true;
 		start_vector = null;
-		vertical_valocity = 0.002 * impulse.length()
+		vertical_valocity = 0.005 * impulse.length()
 		$AudioStreamPlayerBigBonk.play(0.16)
 		
 	if event.is_action_released("lmb"):

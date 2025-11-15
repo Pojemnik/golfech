@@ -59,7 +59,7 @@ color = Color(1, 0.71573704, 0.53279096, 1)
 
 [node name="ToolsManager" type="Node" parent="." node_paths=PackedStringArray("chipper", "driver", "paintbrush", "grass_button", "bunker_button", "wall_button", "water_button")]
 script = ExtResource("7_o6xl0")
-bat_forces = Array[float]([20.0, 10.0])
+bat_forces = Array[float]([7.5, 2.5])
 chipper = NodePath("../UiViewport/SubViewport/Control/Chipper")
 driver = NodePath("../UiViewport/SubViewport/Control/Driver")
 paintbrush = NodePath("../UiViewport/SubViewport/Control/Paintbrush")
@@ -98,7 +98,7 @@ handle_input_locally = false
 size = Vector2i(112, 112)
 render_target_update_mode = 4
 script = ExtResource("2_h2yge")
-levels = Array[ExtResource("3_tbgi4")]([ExtResource("5_tipki"), ExtResource("18_qkpxi"), ExtResource("17_tel4y"), ExtResource("16_fv21b"), ExtResource("15_yq6so"), ExtResource("6_2f3dj"), ExtResource("6_vxglm"), ExtResource("6_og1vs"), ExtResource("7_2wyq8"), ExtResource("4_85g3d"), ExtResource("4_tefeu"), ExtResource("6_85g3d"), ExtResource("7_choun")])
+levels = Array[ExtResource("3_tbgi4")]([ExtResource("18_qkpxi"), ExtResource("17_tel4y"), ExtResource("16_fv21b"), ExtResource("15_yq6so"), ExtResource("6_2f3dj"), ExtResource("6_vxglm"), ExtResource("6_og1vs"), ExtResource("7_2wyq8"), ExtResource("4_85g3d"), ExtResource("4_tefeu"), ExtResource("6_85g3d"), ExtResource("7_choun"), ExtResource("5_tipki")])
 
 [node name="UiViewport" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_choun")
