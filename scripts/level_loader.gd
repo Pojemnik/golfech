@@ -1,12 +1,14 @@
 extends SubViewport
 
-var level: Node;
+var level: Node = null;
 @export var levels: Array[PackedScene]
 var current_level_idx = null;
+var flags;
 
 
 func _ready() -> void:
-	level = $Level
+	if (get_child_count() > 0):
+		level = get_child(0);
 	if !level:
 		load_level(0)
 	else:
@@ -20,16 +22,17 @@ func load_level(level_idx: int):
 	if level:
 		level.queue_free();
 	var instance = levels[level_idx].instantiate();
-	add_child(instance);
+	call_deferred("add_child", instance);
 	level = instance;
 	current_level_idx = level_idx;
-	set_flag_triggers();
+	call_deferred("set_flag_triggers");
 
 
 func set_flag_triggers():
-	var flags = get_tree().get_nodes_in_group("flag")
+	flags = get_tree().get_nodes_in_group("flag")
 	for flag in flags:
-		flag.body_entered.connect(on_flag_reached);
+		if !flag.body_entered.is_connected(on_flag_reached):
+			flag.body_entered.connect(on_flag_reached);
 
 
 func on_flag_reached(body: Node2D):
