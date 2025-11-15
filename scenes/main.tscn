@@ -1,9 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://cir3h3iqn2nq0"]
+[gd_scene load_steps=28 format=3 uid="uid://cir3h3iqn2nq0"]
 
-[ext_resource type="Shader" path="res://hpx.gdshader" id="1_0xm2m"]
+[ext_resource type="Shader" uid="uid://2kmpm3nsa0yf" path="res://hpx.gdshader" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://scripts/level_loader.gd" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://cl52acjotwrwi" path="res://scripts/level_data.gd" id="3_tbgi4"]
-[ext_resource type="Resource" uid="uid://cugfpqgkgni66" path="res://level_data/TestLevel.tres" id="4_85g3d"]
+[ext_resource type="Resource" path="res://level_data/TestLevel.tres" id="4_85g3d"]
 [ext_resource type="Resource" uid="uid://cjryyp7eb0nfl" path="res://level_data/Level1.tres" id="4_tefeu"]
 [ext_resource type="Resource" uid="uid://25ggux654l50" path="res://level_data/Level2.tres" id="5_tipki"]
 [ext_resource type="Resource" uid="uid://boo4t0v5pd1ih" path="res://level_data/Level3.tres" id="6_85g3d"]
@@ -16,12 +16,14 @@
 [ext_resource type="Texture2D" uid="uid://cabhpl2exoi3s" path="res://tex/driver.png" id="12_trceg"]
 [ext_resource type="Script" uid="uid://bw0qt1recwgpl" path="res://scenes/sub_viewport.gd" id="12_yc10j"]
 [ext_resource type="Texture2D" uid="uid://c2dos2y4jb1ep" path="res://tex/driver_selected.png" id="13_a8y0u"]
-[ext_resource type="Script" uid="uid://dbrpw63o7glhx" path="res://scenes/hit_counter.gd" id="13_gqmmt"]
+[ext_resource type="Script" path="res://scenes/hit_counter.gd" id="13_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://2sfmfusnwfqk" path="res://tex/chipper.png" id="13_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://d2xsat0wfcqm4" path="res://tex/chipper_selected.png" id="14_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://dd3yi3ybc60h8" path="res://tex/paintbrush.png" id="15_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://beowg2r3or33c" path="res://tex/grass_button.png" id="17_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://c2l8vhv8wxmjv" path="res://tex/bunker_button.png" id="18_0ld40"]
+[ext_resource type="Texture2D" uid="uid://c7ehntm5xx4od" path="res://tex/water_button.png" id="22_y6deb"]
+[ext_resource type="Texture2D" uid="uid://bm75w04a1f5rk" path="res://tex/wall_button.png" id="23_og1vs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_choun"]
 shader = ExtResource("1_0xm2m")
@@ -47,7 +49,7 @@ offset_bottom = 176.0
 scale = Vector2(5, 5)
 color = Color(1, 0.71573704, 0.53279096, 1)
 
-[node name="ToolsManager" type="Node" parent="." node_paths=PackedStringArray("chipper", "driver", "paintbrush", "grass_button", "bunker_button")]
+[node name="ToolsManager" type="Node" parent="." node_paths=PackedStringArray("chipper", "driver", "paintbrush", "grass_button", "bunker_button", "wall_button", "water_button")]
 script = ExtResource("7_o6xl0")
 bat_forces = Array[float]([10.0, 20.0])
 chipper = NodePath("../UiViewport/SubViewport/Control/Chipper")
@@ -55,6 +57,8 @@ driver = NodePath("../UiViewport/SubViewport/Control/Driver")
 paintbrush = NodePath("../UiViewport/SubViewport/Control/Paintbrush")
 grass_button = NodePath("../UiViewport/SubViewport/Control/VBoxContainer/Grass")
 bunker_button = NodePath("../UiViewport/SubViewport/Control/VBoxContainer/Bunker")
+wall_button = NodePath("../UiViewport/SubViewport/Control/VBoxContainer/Wall")
+water_button = NodePath("../UiViewport/SubViewport/Control/VBoxContainer/Water")
 
 [node name="BackgroundViewport" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_choun")
@@ -160,6 +164,14 @@ texture_normal = ExtResource("17_dp3eg")
 layout_mode = 2
 texture_normal = ExtResource("18_0ld40")
 
+[node name="Water" type="TextureButton" parent="UiViewport/SubViewport/Control/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("22_y6deb")
+
+[node name="Wall" type="TextureButton" parent="UiViewport/SubViewport/Control/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("23_og1vs")
+
 [node name="Paintbrush" type="Sprite2D" parent="UiViewport/SubViewport/Control"]
 texture_filter = 1
 position = Vector2(127, 36.6)
@@ -170,3 +182,5 @@ offset = Vector2(0.5, 0)
 [connection signal="pressed" from="UiViewport/SubViewport/Control/Chipper" to="ToolsManager" method="_on_chipper_pressed"]
 [connection signal="pressed" from="UiViewport/SubViewport/Control/VBoxContainer/Grass" to="ToolsManager" method="_on_grass_pressed"]
 [connection signal="pressed" from="UiViewport/SubViewport/Control/VBoxContainer/Bunker" to="ToolsManager" method="_on_bunker_pressed"]
+[connection signal="pressed" from="UiViewport/SubViewport/Control/VBoxContainer/Water" to="ToolsManager" method="_on_water_pressed"]
+[connection signal="pressed" from="UiViewport/SubViewport/Control/VBoxContainer/Wall" to="ToolsManager" method="_on_wall_pressed"]

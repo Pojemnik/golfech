@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bhoi4dhhi2nh5"]
+[gd_scene load_steps=20 format=4 uid="uid://bhoi4dhhi2nh5"]
 
 [ext_resource type="Texture2D" uid="uid://dlt672i0is6up" path="res://tex/tiles.png" id="1_m00rq"]
 [ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_wwdpc"]
@@ -11,12 +11,16 @@
 [ext_resource type="PackedScene" uid="uid://dbdteh5tvv4sh" path="res://scenes/water.tscn" id="5_76cw8"]
 [ext_resource type="PackedScene" uid="uid://bil7klfgsihs8" path="res://scenes/wormhole.tscn" id="5_3453u"]
 [ext_resource type="PackedScene" uid="uid://cdhr8fbix5ilj" path="res://scenes/flag.tscn" id="6_lmyl5"]
+[ext_resource type="Texture2D" uid="uid://bsls1ckcqbvas" path="res://tex/wall.png" id="6_n5pya"]
+[ext_resource type="Texture2D" uid="uid://ciu6lfw3d0300" path="res://tex/water.png" id="7_kypp1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lha2r"]
 shader = ExtResource("2_lha2r")
 shader_parameter/map = ExtResource("1_m00rq")
 shader_parameter/grass = ExtResource("4_n5pya")
 shader_parameter/bunker = ExtResource("3_6owa4")
+shader_parameter/water = ExtResource("7_kypp1")
+shader_parameter/wall = ExtResource("6_n5pya")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_brv20"]
 texture = ExtResource("1_m00rq")

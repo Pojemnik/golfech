@@ -7,6 +7,8 @@ class_name Tools
 @export var paintbrush: Sprite2D
 @export var grass_button: TextureButton
 @export var bunker_button: TextureButton
+@export var wall_button: TextureButton
+@export var water_button: TextureButton
 
 var selected_tool = 'club'
 var selected_club = null
@@ -52,3 +54,17 @@ func _on_bunker_pressed() -> void:
 	driver.button_pressed = false
 	select_paint(Vector2i(1,0))
 	paintbrush.global_position = bunker_button.global_position + Vector2(-10.0, 3.5 )
+
+func _on_water_pressed() -> void:
+	paintbrush.visible = true
+	chipper.button_pressed = false
+	driver.button_pressed = false
+	select_paint(Vector2i(0,1))
+	paintbrush.global_position = water_button.global_position + Vector2(-10.0, 3.5 )
+
+func _on_wall_pressed() -> void:
+	paintbrush.visible = true
+	chipper.button_pressed = false
+	driver.button_pressed = false
+	select_paint(Vector2i(1,1))
+	paintbrush.global_position = wall_button.global_position + Vector2(-10.0, 3.5 )
