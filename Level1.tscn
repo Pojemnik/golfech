@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://bhoi4dhhi2nh5"]
 
 [ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_wwdpc"]
-[ext_resource type="Texture2D" uid="uid://1jiuc0mmdlb2" path="res://tex/flag.png" id="2_6faey"]
 [ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://ball.tscn" id="3_nc7oo"]
 [ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://bunker.tscn" id="4_6x3wt"]
 [ext_resource type="PackedScene" uid="uid://bil7klfgsihs8" path="res://wormhole.tscn" id="5_3453u"]
 [ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://water.gd" id="6_46pvi"]
+[ext_resource type="PackedScene" uid="uid://cdhr8fbix5ilj" path="res://flag.tscn" id="6_lmyl5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqhe0"]
 size = Vector2(20, 120)
@@ -18,7 +18,7 @@ size = Vector2(8, 8)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8qnej"]
 distance = -112.0
 
-[node name="Node2D" type="Node2D"]
+[node name="Level" type="Node2D"]
 
 [node name="Playarea" type="Sprite2D" parent="."]
 texture = ExtResource("1_wwdpc")
@@ -27,13 +27,7 @@ centered = false
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(104, 7)
 
-[node name="Flag" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(60, 76)
-texture = ExtResource("2_6faey")
-offset = Vector2(0.5, 0)
-
-[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") groups=["ball"] instance=ExtResource("3_nc7oo")]
+[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") instance=ExtResource("3_nc7oo")]
 position = Vector2(104, 7)
 spawnpoint = NodePath("../Spawnpoint")
 
@@ -167,6 +161,9 @@ shape = SubResource("WorldBoundaryShape2D_8qnej")
 position = Vector2(112, 112)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="Flag" parent="." groups=["flag"] instance=ExtResource("6_lmyl5")]
+position = Vector2(18, 10)
 
 [connection signal="body_exited" from="Wormhole" to="Wormhole" method="_on_body_exited"]
 [connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]

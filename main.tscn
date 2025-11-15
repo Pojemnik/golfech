@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cir3h3iqn2nq0"]
+[gd_scene load_steps=8 format=3 uid="uid://cir3h3iqn2nq0"]
 
-[ext_resource type="Shader" uid="uid://2kmpm3nsa0yf" path="res://hpx.gdshader" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://dmc7vxokgu0x6" path="res://Level4.tscn" id="2_0xm2m"]
+[ext_resource type="Shader" path="res://hpx.gdshader" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bhoi4dhhi2nh5" path="res://Level1.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://level_loader.gd" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://jy4dwp4l4gor" path="res://Level2.tscn" id="4_7mycd"]
+[ext_resource type="PackedScene" uid="uid://diq7x8l08nkb8" path="res://Level3.tscn" id="5_272bh"]
+[ext_resource type="PackedScene" uid="uid://b27yoieqat8ht" path="res://Level4.tscn" id="6_5vw27"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
 shader = ExtResource("1_0xm2m")
@@ -24,5 +28,5 @@ scale = Vector2(6, 6)
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
 render_target_update_mode = 4
-
-[node name="Node2D" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_0xm2m")]
+script = ExtResource("2_h2yge")
+levels = Array[PackedScene]([ExtResource("2_0xm2m"), ExtResource("4_7mycd"), ExtResource("5_272bh"), ExtResource("6_5vw27")])

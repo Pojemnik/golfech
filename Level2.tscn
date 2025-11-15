@@ -31,7 +31,7 @@ position = Vector2(89, 58)
 texture = ExtResource("2_ncqfc")
 offset = Vector2(0.5, 0)
 
-[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") groups=["ball"] instance=ExtResource("3_qgfn2")]
+[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") instance=ExtResource("3_qgfn2")]
 position = Vector2(14, 56)
 spawnpoint = NodePath("../Spawnpoint")
 

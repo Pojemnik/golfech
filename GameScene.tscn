@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://drw3t28r5xep0"]
 
 [ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_i2arf"]
-[ext_resource type="PackedScene" path="res://ball.tscn" id="2_hvuor"]
+[ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://ball.tscn" id="2_hvuor"]
 [ext_resource type="Texture2D" uid="uid://1jiuc0mmdlb2" path="res://tex/flag.png" id="3_1kil2"]
 [ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://bunker.tscn" id="3_haeiw"]
 [ext_resource type="PackedScene" uid="uid://bil7klfgsihs8" path="res://wormhole.tscn" id="4_b5kf5"]
@@ -27,7 +27,7 @@ position = Vector2(60, 76)
 texture = ExtResource("3_1kil2")
 offset = Vector2(0.5, 0)
 
-[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") groups=["ball"] instance=ExtResource("2_hvuor")]
+[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") instance=ExtResource("2_hvuor")]
 position = Vector2(32, 43)
 spawnpoint = NodePath("../Spawnpoint")
 

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdhr8fbix5ilj"]
+
+[ext_resource type="Texture2D" uid="uid://1jiuc0mmdlb2" path="res://tex/flag.png" id="1_l1sgl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jfjt6"]
+
+[node name="Flag" type="Area2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_l1sgl")
+offset = Vector2(0.5, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.3, 0.3)
+shape = SubResource("CircleShape2D_jfjt6")

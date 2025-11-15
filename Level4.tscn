@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b27yoieqat8ht"]
 
 [ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_545p4"]
-[ext_resource type="Texture2D" uid="uid://1jiuc0mmdlb2" path="res://tex/flag.png" id="2_h8oof"]
+[ext_resource type="PackedScene" uid="uid://cdhr8fbix5ilj" path="res://flag.tscn" id="2_jfjt6"]
 [ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://ball.tscn" id="3_nqeel"]
 [ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://bunker.tscn" id="4_u5lf4"]
 [ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://water.gd" id="6_ewulq"]
@@ -22,11 +22,8 @@ distance = -112.0
 texture = ExtResource("1_545p4")
 centered = false
 
-[node name="Flag" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(58, 63)
-texture = ExtResource("2_h8oof")
-offset = Vector2(0.5, 0)
+[node name="Flag" parent="." instance=ExtResource("2_jfjt6")]
+position = Vector2(58, 72)
 
 [node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") instance=ExtResource("3_nqeel")]
 position = Vector2(58, 49)
