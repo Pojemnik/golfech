@@ -4,7 +4,9 @@ class_name Tools
 @export var bat_forces: Array[float];
 @export var chipper: TextureButton 
 @export var driver: TextureButton
-@export var paintbrush: TextureButton
+@export var paintbrush: Sprite2D
+@export var grass_button: TextureButton
+@export var bunker_button: TextureButton
 
 var selected_brush: bool = false;
 var selected_bat: int;
@@ -57,15 +59,26 @@ func select_paint(idx: Vector2i):
 
 func _on_driver_pressed() -> void:
 	chipper.button_pressed = false
-	paintbrush.button_pressed = false
+	paintbrush.visible = false
 	select_bat(0);
 
 func _on_chipper_pressed() -> void:
-	paintbrush.button_pressed = false
 	driver.button_pressed = false
+	paintbrush.visible = false
 	select_bat(1);
 
-func _on_paintbrush_pressed() -> void:
+func _on_grass_pressed() -> void:
+	paintbrush.visible = true
 	chipper.button_pressed = false
 	driver.button_pressed = false
 	select_brush()
+	select_paint(Vector2i(0,0))
+	paintbrush.global_position = grass_button.global_position + Vector2(-10.0, 3.5 )
+
+func _on_bunker_pressed() -> void:
+	paintbrush.visible = true
+	chipper.button_pressed = false
+	driver.button_pressed = false
+	select_brush()
+	select_paint(Vector2i(1,0))
+	paintbrush.global_position = bunker_button.global_position + Vector2(-10.0, 3.5 )
