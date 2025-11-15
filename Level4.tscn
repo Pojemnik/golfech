@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmc7vxokgu0x6"]
+[gd_scene load_steps=9 format=3 uid="uid://b27yoieqat8ht"]
 
 [ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_545p4"]
 [ext_resource type="Texture2D" uid="uid://1jiuc0mmdlb2" path="res://tex/flag.png" id="2_h8oof"]
@@ -28,7 +28,7 @@ position = Vector2(58, 63)
 texture = ExtResource("2_h8oof")
 offset = Vector2(0.5, 0)
 
-[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") groups=["ball"] instance=ExtResource("3_nqeel")]
+[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") instance=ExtResource("3_nqeel")]
 position = Vector2(58, 49)
 spawnpoint = NodePath("Spawnpoint")
 
