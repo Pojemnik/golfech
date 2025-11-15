@@ -21,8 +21,8 @@ GameManager="*res://scripts/game_manager.gd"
 
 [display]
 
-window/size/viewport_width=672
-window/size/viewport_height=672
+window/size/viewport_width=900
+window/size/viewport_height=900
 
 [global_group]
 

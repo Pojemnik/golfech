@@ -10,8 +10,6 @@ func _ready() -> void:
 	GameManager.game_over.connect(reload_level);
 	GameManager.level_finished.connect(next_level);
 	GameManager.hit_count_increased.connect(on_hit_count_increased);
-	if (get_child_count() > 0):
-		level = get_child(0);
 	if !level:
 		load_level(0);
 

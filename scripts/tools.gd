@@ -2,6 +2,9 @@ extends Node
 class_name Tools	
 
 @export var bat_forces: Array[float];
+@export var chipper: TextureButton 
+@export var driver: TextureButton
+@export var paintbrush: TextureButton
 
 var selected_brush: bool = false;
 var selected_bat: int;
@@ -51,3 +54,18 @@ func select_paint(idx: Vector2i):
 	selected_paint = idx;
 	paint_selected.emit(idx);
 	print("Selected paint");
+
+func _on_driver_pressed() -> void:
+	chipper.button_pressed = false
+	paintbrush.button_pressed = false
+	select_bat(0);
+
+func _on_chipper_pressed() -> void:
+	paintbrush.button_pressed = false
+	driver.button_pressed = false
+	select_bat(1);
+
+func _on_paintbrush_pressed() -> void:
+	chipper.button_pressed = false
+	driver.button_pressed = false
+	select_brush()
