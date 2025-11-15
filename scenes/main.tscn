@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cir3h3iqn2nq0"]
+[gd_scene load_steps=38 format=3 uid="uid://cir3h3iqn2nq0"]
 
 [ext_resource type="Shader" uid="uid://2kmpm3nsa0yf" path="res://hpx.gdshader" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://scripts/level_loader.gd" id="2_h2yge"]
@@ -32,6 +32,8 @@
 [ext_resource type="Resource" uid="uid://bnu02bxmuusvt" path="res://level_data/level_smile.tres" id="18_qkpxi"]
 [ext_resource type="Texture2D" uid="uid://c7ehntm5xx4od" path="res://tex/water_button.png" id="22_y6deb"]
 [ext_resource type="Texture2D" uid="uid://bm75w04a1f5rk" path="res://tex/wall_button.png" id="23_og1vs"]
+[ext_resource type="BitMap" uid="uid://bvjx1vxqls3xu" path="res://tex/driver-mask.bmp" id="26_5q0nq"]
+[ext_resource type="BitMap" uid="uid://dyfyj6xocg4ws" path="res://tex/chipper_mask.bmp" id="29_dgi5k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_choun"]
 shader = ExtResource("1_0xm2m")
@@ -144,6 +146,7 @@ offset_bottom = 111.08
 toggle_mode = true
 texture_normal = ExtResource("12_trceg")
 texture_pressed = ExtResource("13_a8y0u")
+texture_click_mask = ExtResource("26_5q0nq")
 
 [node name="Chipper" type="TextureButton" parent="UiViewport/SubViewport/Control"]
 layout_mode = 0
@@ -154,6 +157,7 @@ offset_bottom = 100.280014
 toggle_mode = true
 texture_normal = ExtResource("13_jkv2x")
 texture_pressed = ExtResource("14_jbj1t")
+texture_click_mask = ExtResource("29_dgi5k")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UiViewport/SubViewport/Control"]
 layout_mode = 0

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dyfyj6xocg4ws"
+path="res://.godot/imported/chipper_mask.bmp-45a68be98bacfead2608bd742f37ee64.res"
+
+[deps]
+
+source_file="res://tex/chipper_mask.bmp"
+dest_files=["res://.godot/imported/chipper_mask.bmp-45a68be98bacfead2608bd742f37ee64.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
