@@ -67,6 +67,7 @@ func _input(event: InputEvent) -> void:
 		rolling = true;
 		start_vector = null;
 		vertical_valocity = 0.002 * impulse.length()
+		$AudioStreamPlayerBigBonk.play(0.16)
 		
 	if event.is_action_released("lmb"):
 		start_vector = null
@@ -100,9 +101,12 @@ func _on_body_entered(body: Node) -> void:
 			
 		stop()
 	
-	if body.is_in_group("water"):
+	elif body.is_in_group("water"):
 		respawn();
 		GameManager.set_hit_count(GameManager.current_hit_count + 1);
+		
+	else:
+		$AudioStreamPlayerSmallBonk.play()
 
 
 func flag_hit():

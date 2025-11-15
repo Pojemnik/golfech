@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv3jvvqi837e3"]
+[gd_scene load_steps=8 format=3 uid="uid://dv3jvvqi837e3"]
 
 [ext_resource type="Script" uid="uid://ckfhh2dky166s" path="res://scripts/ball.gd" id="1_41u45"]
 [ext_resource type="Texture2D" uid="uid://dudcad3qnopsm" path="res://tex/ball_shadow.png" id="2_f7cbr"]
 [ext_resource type="Texture2D" uid="uid://8ewvrwenv2sg" path="res://tex/ball.png" id="2_ktgx5"]
+[ext_resource type="AudioStream" uid="uid://c605msjcqur3p" path="res://sound/bonk2.wav" id="4_4dx81"]
+[ext_resource type="AudioStream" uid="uid://dgwa6y6v70dic" path="res://sound/lower_wall_bonk.wav" id="5_eew57"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k77ap"]
 friction = 0.0
@@ -39,5 +41,13 @@ texture = ExtResource("2_f7cbr")
 [node name="Ball" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_ktgx5")
+
+[node name="AudioStreamPlayerBigBonk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4dx81")
+
+[node name="AudioStreamPlayerSmallBonk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_eew57")
+volume_db = -20.991
+pitch_scale = 0.71
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
