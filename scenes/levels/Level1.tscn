@@ -28,8 +28,6 @@ position = Vector2(104, 7)
 [node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") instance=ExtResource("3_nc7oo")]
 position = Vector2(104, 7)
 spawnpoint = NodePath("../Spawnpoint")
-max_force_input = 20.0
-bat_force = 2.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(145, -32.000004)
@@ -51,13 +49,6 @@ output = NodePath("../Wormhole2")
 
 [node name="Water" parent="." instance=ExtResource("5_76cw8")]
 position = Vector2(-59, 40)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(88, 20)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-scale = Vector2(16, 1)
-shape = SubResource("RectangleShape2D_8qnej")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -100,6 +91,15 @@ rotation = -0.7853982
 scale = Vector2(0.9999999, 0.9999999)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D7"]
+scale = Vector2(16, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="Node2D"]
+position = Vector2(105.000015, 42.000004)
+scale = Vector2(0.9999998, 0.9999998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D12"]
+position = Vector2(-13.000017, -22.000006)
 scale = Vector2(16, 1)
 shape = SubResource("RectangleShape2D_8qnej")
 

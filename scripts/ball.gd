@@ -2,7 +2,6 @@ extends RigidBody2D
 
 @export var spawnpoint: Node2D;
 @export var max_force_input: float;
-@export var bat_force: float;
 
 var start_vector = null;
 var current_vector = Vector2.ZERO;
@@ -14,7 +13,7 @@ func respawn() -> void:
 	teleport(spawnpoint.position)
 	stop();
 	teleported = false;
-	
+
 
 func teleport(pos: Vector2):
 	if (!teleported):
@@ -25,6 +24,7 @@ func teleport(pos: Vector2):
 			Transform2D.IDENTITY.translated(pos)
 		);
 
+
 func stop() -> void:
 	linear_velocity = Vector2.ZERO;
 	angular_velocity = 0;
@@ -33,6 +33,7 @@ func stop() -> void:
 func _ready() -> void:
 	respawn();
 	tools_manager = get_node("/root/Main/ToolsManager");
+	print(tools_manager);
 	
 
 func _process(delta: float) -> void:

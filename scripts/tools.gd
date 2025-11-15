@@ -7,6 +7,10 @@ var selected_brush: bool = false;
 var selected_bat: int;
 var selected_paint: int;
 
+#signal brush_selected;
+#signal bat_selected(bat_idx: int);
+#signal paint_selected(paint_idx: int);
+
 func _input(event):
 	if event.is_action_pressed("select_brush"):
 		select_brush();

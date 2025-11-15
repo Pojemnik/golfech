@@ -10,9 +10,9 @@ func _ready() -> void:
 	if (get_child_count() > 0):
 		level = get_child(0);
 	if !level:
-		load_level(0)
+		load_level(0);
 	else:
-		set_flag_triggers()
+		set_flag_triggers();
 		
 
 func load_level(level_idx: int):
@@ -22,6 +22,7 @@ func load_level(level_idx: int):
 	if level:
 		level.queue_free();
 	var instance = levels[level_idx].instantiate();
+	print("Load level ", levels[level_idx].resource_path);
 	call_deferred("add_child", instance);
 	level = instance;
 	current_level_idx = level_idx;
