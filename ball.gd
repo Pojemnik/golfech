@@ -6,11 +6,13 @@ var start_vector = null;
 var current_vector = Vector2.ZERO;
 var teleported = false;
 
+
 func respawn() -> void:
 	teleport(spawnpoint.position)
 	linear_velocity = Vector2.ZERO;
 	teleported = false;
 	
+
 func teleport(pos: Vector2):
 	if (!teleported):
 		teleported = true;
@@ -19,6 +21,11 @@ func teleport(pos: Vector2):
 			PhysicsServer2D.BODY_STATE_TRANSFORM,
 			Transform2D.IDENTITY.translated(pos)
 		);
+
+
+func _ready() -> void:
+	respawn();
+	
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("lmb") and sleeping:
@@ -33,3 +40,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("lmb") and start_vector:
 		apply_impulse(-current_vector);
 		start_vector = null;
+
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("sticky"):
+		linear_velocity = Vector2.ZERO;
+		

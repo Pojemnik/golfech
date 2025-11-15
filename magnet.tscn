@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://rui87mm4fd88"]
+
+[ext_resource type="Script" uid="uid://cm88s6emtb80t" path="res://magnet.gd" id="1_wu1kv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1kil2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5cvvu"]
+
+[node name="Magnet" type="Node2D"]
+
+[node name="MagnetArea" type="Area2D" parent="."]
+script = ExtResource("1_wu1kv")
+force = -100000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MagnetArea"]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_1kil2")
+
+[node name="Magnet" type="StaticBody2D" parent="." groups=["sticky"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
+shape = SubResource("CircleShape2D_5cvvu")
+
+[connection signal="body_entered" from="MagnetArea" to="MagnetArea" method="_on_body_entered"]
+[connection signal="body_exited" from="MagnetArea" to="MagnetArea" method="_on_body_exited"]
