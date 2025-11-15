@@ -46,6 +46,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_process_movement();
 
+var vertical_valocity = 0.0;
+var vertical_height = 0.0;
 
 func _process_movement():
 	if Input.is_action_just_pressed("lmb") and !rolling and !tools_manager.selected_brush:
@@ -59,9 +61,11 @@ func _process_movement():
 		$Line2D.points = [];
 	
 	if Input.is_action_just_released("lmb") and start_vector and !tools_manager.selected_brush:
-		apply_impulse(-current_vector * tools_manager.get_current_bat_force());
+		var impulse = -current_vector * tools_manager.get_current_bat_force()
+		apply_impulse(impulse);
 		rolling = true;
 		start_vector = null;
+		vertical_valocity = 0.002 * impulse.length()
 
 
 func _physics_process(delta: float) -> void:
@@ -69,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		GameManager.increase_hit_count();
 		rolling = false;
 	last_sleep_state = sleeping;
-	handle_height();
+	handle_height(delta);
 
 
 func _on_body_entered(body: Node) -> void:
@@ -93,10 +97,8 @@ func flag_hit():
 	print("Flag hit");
 	GameManager.on_flag_reached();
 
-func handle_height():
-	var target_height = linear_velocity.length() * height_ratio;
-	if linear_velocity.length() < max_rolling_speed:
-		target_height = 0;
-	var diff = target_height - ball_sprite.position.y;
-	var x = sign(diff) * min(max_height_diff, abs(diff));
-	ball_sprite.position.y = ball_sprite.position.y + x;
+
+func handle_height(delta: float):
+	vertical_height = max(vertical_height + vertical_valocity, 0.0)
+	vertical_valocity -= delta * 4.0
+	ball_sprite.position.y = -vertical_height
