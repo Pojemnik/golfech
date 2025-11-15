@@ -1,0 +1,147 @@
+[gd_scene load_steps=10 format=3 uid="uid://jy4dwp4l4gor"]
+
+[ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_8qnej"]
+[ext_resource type="Texture2D" uid="uid://1jiuc0mmdlb2" path="res://tex/flag.png" id="2_ncqfc"]
+[ext_resource type="PackedScene" path="res://ball.tscn" id="3_qgfn2"]
+[ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://bunker.tscn" id="4_edmbx"]
+[ext_resource type="PackedScene" uid="uid://bil7klfgsihs8" path="res://wormhole.tscn" id="5_k505m"]
+[ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://water.gd" id="6_mujx1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqhe0"]
+size = Vector2(20, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2arf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qnej"]
+size = Vector2(8, 8)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Playarea" type="Sprite2D" parent="."]
+texture = ExtResource("1_8qnej")
+centered = false
+
+[node name="Spawnpoint" type="Node2D" parent="."]
+position = Vector2(104, 7)
+
+[node name="Flag" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(60, 76)
+texture = ExtResource("2_ncqfc")
+offset = Vector2(0.5, 0)
+
+[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") instance=ExtResource("3_qgfn2")]
+position = Vector2(104, 7)
+spawnpoint = NodePath("../Spawnpoint")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(145, -32.000004)
+rotation = -0.67284924
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_eqhe0")
+
+[node name="Bunker" parent="." instance=ExtResource("4_edmbx")]
+position = Vector2(237, 196)
+
+[node name="Wormhole2" parent="." node_paths=PackedStringArray("output") instance=ExtResource("5_k505m")]
+position = Vector2(-75, -15)
+output = NodePath("../Wormhole")
+
+[node name="Wormhole" parent="." node_paths=PackedStringArray("output") instance=ExtResource("5_k505m")]
+position = Vector2(-80, -68)
+output = NodePath("../Wormhole2")
+
+[node name="Water" type="Area2D" parent="."]
+position = Vector2(-59, 40)
+script = ExtResource("6_mujx1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
+shape = SubResource("RectangleShape2D_i2arf")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(88, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+scale = Vector2(16, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(28, 52)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+scale = Vector2(9, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(56, 90)
+rotation = 3.1415925
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+scale = Vector2(8, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(90, 70)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+scale = Vector2(6, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(-3.9999962, 103)
+rotation = 0.7853982
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+scale = Vector2(16, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+position = Vector2(3, 3)
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+scale = Vector2(16, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+position = Vector2(118, 100)
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+scale = Vector2(16, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+position = Vector2(109.00001, 27.000002)
+rotation = 0.7853982
+scale = Vector2(0.9999998, 0.9999998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
+scale = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+position = Vector2(35.000004, 83.00001)
+rotation = 0.7853982
+scale = Vector2(0.9999998, 0.9999998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
+scale = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="."]
+position = Vector2(35, 27)
+rotation = -0.7853982
+scale = Vector2(0.9999998, 0.9999998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D11"]
+scale = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[connection signal="body_exited" from="Wormhole" to="Wormhole" method="_on_body_exited"]
+[connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
