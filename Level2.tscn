@@ -51,21 +51,22 @@ position = Vector2(58, 54)
 script = ExtResource("6_mujx1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_i2arf")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Water"]
-position = Vector2(8, -18)
+position = Vector2(8, -28)
 rotation = -0.5235988
 shape = SubResource("RectangleShape2D_i2arf")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Water"]
-position = Vector2(0, 8)
-rotation = -1.0471976
-scale = Vector2(5, 0.5)
+position = Vector2(5.0000005, -3.999998)
+rotation = -1.1693707
+scale = Vector2(3, 0.5)
 shape = SubResource("RectangleShape2D_i2arf")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Water"]
-position = Vector2(4, -39)
+position = Vector2(3, 28)
 rotation = -1.9006636
 scale = Vector2(2, 0.5)
 shape = SubResource("RectangleShape2D_i2arf")
@@ -86,6 +87,22 @@ rotation = -0.46251225
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D6"]
 scale = Vector2(15, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Node2D"]
+position = Vector2(60, 8.000008)
+rotation = 1.4748032
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D7"]
+scale = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Node2D"]
+position = Vector2(58, 100)
+rotation = 1.9634954
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D8"]
+scale = Vector2(3, 1)
 shape = SubResource("RectangleShape2D_8qnej")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]

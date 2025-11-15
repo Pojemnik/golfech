@@ -1,0 +1,109 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmc7vxokgu0x6"]
+
+[ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_545p4"]
+[ext_resource type="Texture2D" uid="uid://1jiuc0mmdlb2" path="res://tex/flag.png" id="2_h8oof"]
+[ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://ball.tscn" id="3_nqeel"]
+[ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://bunker.tscn" id="4_u5lf4"]
+[ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://water.gd" id="6_ewulq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qlmxs"]
+radius = 20.3
+height = 50.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qnej"]
+size = Vector2(8, 8)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8qnej"]
+distance = -112.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Playarea" type="Sprite2D" parent="."]
+texture = ExtResource("1_545p4")
+centered = false
+
+[node name="Flag" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(58, 63)
+texture = ExtResource("2_h8oof")
+offset = Vector2(0.5, 0)
+
+[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") groups=["ball"] instance=ExtResource("3_nqeel")]
+position = Vector2(58, 49)
+spawnpoint = NodePath("Spawnpoint")
+
+[node name="Spawnpoint" type="Node2D" parent="Ball"]
+
+[node name="Water" type="Area2D" parent="."]
+position = Vector2(58, 105)
+rotation = 1.5707964
+script = ExtResource("6_ewulq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Water"]
+position = Vector2(0.9999995, 2)
+rotation = -1.5707964
+scale = Vector2(2.763277, 0.9428709)
+shape = SubResource("CapsuleShape2D_qlmxs")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Water"]
+position = Vector2(-98.00001, 58.000004)
+rotation = 3.9182642
+scale = Vector2(2, 1)
+shape = SubResource("CapsuleShape2D_qlmxs")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Water"]
+position = Vector2(-101.99999, -53.999996)
+rotation = -3.9182642
+scale = Vector2(2, 1)
+shape = SubResource("CapsuleShape2D_qlmxs")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Node2D"]
+position = Vector2(0, 67)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D5"]
+position = Vector2(58, -11)
+scale = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Node2D"]
+position = Vector2(52, -13)
+rotation = -0.46251225
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D6"]
+scale = Vector2(15, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="BorderCollider" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderCollider"]
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BorderCollider"]
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BorderCollider"]
+position = Vector2(112, 112)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BorderCollider"]
+position = Vector2(112, 112)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="Bunker3" parent="." instance=ExtResource("4_u5lf4")]
+position = Vector2(58, 0)
+scale = Vector2(0.4, 0.4)
+
+[node name="Bunker4" parent="." instance=ExtResource("4_u5lf4")]
+position = Vector2(-4.7683716e-07, 71)
+scale = Vector2(0.4, 0.4)
+
+[node name="Bunker5" parent="." instance=ExtResource("4_u5lf4")]
+position = Vector2(112.00001, 71)
+scale = Vector2(0.4, 0.4)
+
+[connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
