@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cir3h3iqn2nq0"]
+[gd_scene load_steps=11 format=3 uid="uid://cir3h3iqn2nq0"]
 
 [ext_resource type="Shader" path="res://hpx.gdshader" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://scripts/level_loader.gd" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://cl52acjotwrwi" path="res://scripts/level_data.gd" id="3_tbgi4"]
+[ext_resource type="Resource" uid="uid://cugfpqgkgni66" path="res://level_data/TestLevel.tres" id="4_85g3d"]
 [ext_resource type="Resource" uid="uid://cjryyp7eb0nfl" path="res://level_data/Level1.tres" id="4_tefeu"]
 [ext_resource type="Resource" uid="uid://25ggux654l50" path="res://level_data/Level2.tres" id="5_tipki"]
 [ext_resource type="Resource" uid="uid://boo4t0v5pd1ih" path="res://level_data/Level3.tres" id="6_85g3d"]
@@ -32,7 +33,7 @@ handle_input_locally = false
 size = Vector2i(112, 112)
 render_target_update_mode = 4
 script = ExtResource("2_h2yge")
-levels = Array[ExtResource("3_tbgi4")]([ExtResource("4_tefeu"), ExtResource("5_tipki"), ExtResource("6_85g3d"), ExtResource("7_choun")])
+levels = Array[ExtResource("3_tbgi4")]([ExtResource("4_85g3d"), ExtResource("4_tefeu"), ExtResource("5_tipki"), ExtResource("6_85g3d"), ExtResource("7_choun")])
 
 [node name="ToolsManager" type="Node" parent="."]
 script = ExtResource("7_o6xl0")

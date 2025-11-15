@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://cb3a4n8s1tol4"]
+
+[ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_buy1m"]
+[ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://scenes/ball.tscn" id="2_4unv2"]
+[ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://scenes/bunker.tscn" id="3_yynx6"]
+[ext_resource type="PackedScene" uid="uid://bil7klfgsihs8" path="res://scenes/wormhole.tscn" id="4_ktef7"]
+[ext_resource type="PackedScene" uid="uid://dbdteh5tvv4sh" path="res://scenes/water.tscn" id="5_l1je0"]
+[ext_resource type="PackedScene" uid="uid://cdhr8fbix5ilj" path="res://scenes/flag.tscn" id="6_ae2j3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqhe0"]
+size = Vector2(20, 120)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8qnej"]
+distance = -112.0
+
+[node name="Level" type="Node2D"]
+
+[node name="Playarea" type="Sprite2D" parent="."]
+texture = ExtResource("1_buy1m")
+centered = false
+
+[node name="Spawnpoint" type="Node2D" parent="."]
+position = Vector2(104, 7)
+
+[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") instance=ExtResource("2_4unv2")]
+position = Vector2(104, 7)
+spawnpoint = NodePath("../Spawnpoint")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(145, -32.000004)
+rotation = -0.67284924
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_eqhe0")
+
+[node name="Bunker" parent="." instance=ExtResource("3_yynx6")]
+position = Vector2(237, 196)
+
+[node name="Wormhole2" parent="." node_paths=PackedStringArray("output") instance=ExtResource("4_ktef7")]
+position = Vector2(-75, -15)
+output = NodePath("../Wormhole")
+
+[node name="Wormhole" parent="." node_paths=PackedStringArray("output") instance=ExtResource("4_ktef7")]
+position = Vector2(-80, -68)
+output = NodePath("../Wormhole2")
+
+[node name="Water" parent="." instance=ExtResource("5_l1je0")]
+position = Vector2(-59, 40)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D3"]
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(112, 112)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(112, 112)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="Flag" parent="." instance=ExtResource("6_ae2j3")]
+position = Vector2(59, 10)
+
+[connection signal="body_exited" from="Wormhole" to="Wormhole" method="_on_body_exited"]

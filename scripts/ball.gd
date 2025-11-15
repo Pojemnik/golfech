@@ -7,7 +7,8 @@ var start_vector = null;
 var current_vector = Vector2.ZERO;
 var teleported = false;
 var tools_manager: Tools;
-
+var last_sleep_state: bool = true;
+var rolling: bool = false;
 
 func respawn() -> void:
 	teleport(spawnpoint.position)
@@ -28,16 +29,17 @@ func teleport(pos: Vector2):
 func stop() -> void:
 	linear_velocity = Vector2.ZERO;
 	angular_velocity = 0;
+	last_sleep_state = true;
+	rolling = false;
 	
 
 func _ready() -> void:
 	respawn();
 	tools_manager = get_node("/root/Main/ToolsManager");
-	print(tools_manager);
 	
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("lmb") and sleeping and !tools_manager.selected_brush:
+	if Input.is_action_just_pressed("lmb") and !rolling and !tools_manager.selected_brush:
 		start_vector = get_viewport().get_mouse_position();
 	
 	if start_vector and !tools_manager.selected_brush:
@@ -49,7 +51,15 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_released("lmb") and start_vector and !tools_manager.selected_brush:
 		apply_impulse(-current_vector * tools_manager.get_current_bat_force());
+		rolling = true;
 		start_vector = null;
+
+
+func _physics_process(delta: float) -> void:
+	if !last_sleep_state and sleeping and rolling:
+		GameManager.increase_hit_count();
+		rolling = false;
+	last_sleep_state = sleeping;
 
 
 func _on_body_entered(body: Node) -> void:
@@ -67,3 +77,8 @@ func _on_body_entered(body: Node) -> void:
 	
 	if body.is_in_group("water"):
 		respawn();
+
+
+func flag_hit():
+	print("Flag hit");
+	GameManager.on_flag_reached();
