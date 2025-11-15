@@ -10,12 +10,11 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_f24su"]
 radius = 2.0
 
-[node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("spawnpoint")]
+[node name="Ball" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_k77ap")
 gravity_scale = 0.0
 linear_damp = 1.0
 script = ExtResource("1_41u45")
-spawnpoint = NodePath("")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_f24su")
@@ -23,6 +22,7 @@ shape = SubResource("CircleShape2D_f24su")
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 50, 0)
 width = 2.0
+default_color = Color(1, 0.2, 0.2627451, 1)
 
 [node name="Ball" type="Sprite2D" parent="."]
 texture_filter = 1
