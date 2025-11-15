@@ -6,14 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://scenes/bunker.tscn" id="4_edmbx"]
 [ext_resource type="PackedScene" uid="uid://bil7klfgsihs8" path="res://scenes/wormhole.tscn" id="5_k505m"]
 [ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://scripts/water.gd" id="6_mujx1"]
+[ext_resource type="PackedScene" uid="uid://rui87mm4fd88" path="res://scenes/magnet.tscn" id="6_o8o5n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqhe0"]
 size = Vector2(20, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i2arf"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qnej"]
-size = Vector2(8, 8)
 
 [node name="Node2D" type="Node2D"]
 
@@ -53,96 +51,15 @@ output = NodePath("../Wormhole")
 position = Vector2(-80, -68)
 output = NodePath("../Wormhole2")
 
+[node name="Magnet" parent="." instance=ExtResource("6_o8o5n")]
+position = Vector2(38, 37)
+
 [node name="Water" type="Area2D" parent="."]
 position = Vector2(-55, 41)
 script = ExtResource("6_mujx1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
 shape = SubResource("RectangleShape2D_i2arf")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="." groups=["sticky"]]
-position = Vector2(88, 20)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-scale = Vector2(16, 1)
-shape = SubResource("RectangleShape2D_8qnej")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(28, 52)
-rotation = -1.5707964
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-scale = Vector2(9, 1)
-shape = SubResource("RectangleShape2D_8qnej")
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
-position = Vector2(56, 90)
-rotation = 3.1415925
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-scale = Vector2(8, 1)
-shape = SubResource("RectangleShape2D_8qnej")
-
-[node name="StaticBody2D5" type="StaticBody2D" parent="."]
-position = Vector2(90, 70)
-rotation = 1.5707964
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" groups=["sticky"]]
-scale = Vector2(6, 1)
-shape = SubResource("RectangleShape2D_8qnej")
-
-[node name="StaticBody2D6" type="StaticBody2D" parent="."]
-position = Vector2(-3.9999962, 103)
-rotation = 0.7853982
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
-scale = Vector2(16, 1)
-shape = SubResource("RectangleShape2D_8qnej")
-
-[node name="StaticBody2D7" type="StaticBody2D" parent="."]
-position = Vector2(3, 3)
-rotation = -0.7853982
-scale = Vector2(0.99999994, 0.99999994)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
-scale = Vector2(16, 1)
-shape = SubResource("RectangleShape2D_8qnej")
-
-[node name="StaticBody2D8" type="StaticBody2D" parent="."]
-position = Vector2(118, 100)
-rotation = -0.7853982
-scale = Vector2(0.99999994, 0.99999994)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
-scale = Vector2(16, 1)
-shape = SubResource("RectangleShape2D_8qnej")
-
-[node name="StaticBody2D9" type="StaticBody2D" parent="."]
-position = Vector2(109.00001, 27.000002)
-rotation = 0.7853982
-scale = Vector2(0.9999998, 0.9999998)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
-scale = Vector2(2, 1)
-shape = SubResource("RectangleShape2D_8qnej")
-
-[node name="StaticBody2D10" type="StaticBody2D" parent="."]
-position = Vector2(35.000004, 83.00001)
-rotation = 0.7853982
-scale = Vector2(0.9999998, 0.9999998)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
-scale = Vector2(2, 1)
-shape = SubResource("RectangleShape2D_8qnej")
-
-[node name="StaticBody2D11" type="StaticBody2D" parent="."]
-position = Vector2(35, 27)
-rotation = -0.7853982
-scale = Vector2(0.9999998, 0.9999998)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D11"]
-scale = Vector2(2, 1)
-shape = SubResource("RectangleShape2D_8qnej")
 
 [connection signal="body_exited" from="Wormhole" to="Wormhole" method="_on_body_exited"]
 [connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]

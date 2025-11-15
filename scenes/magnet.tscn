@@ -15,6 +15,7 @@ force = -100000.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MagnetArea"]
 scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_1kil2")
+debug_color = Color(0.99692196, 0, 0.18626031, 0.41960785)
 
 [node name="Magnet" type="StaticBody2D" parent="." groups=["sticky"]]
 

@@ -10,5 +10,6 @@ script = ExtResource("1_lhetx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.25, 1.25)
 shape = SubResource("CircleShape2D_haeiw")
+debug_color = Color(0, 0.63278747, 0.45114636, 0.41960785)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
