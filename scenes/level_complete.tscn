@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://de1vyy5bjy5r6"]
+
+[ext_resource type="Script" uid="uid://bmv70qk2ovd15" path="res://scenes/level_complete.gd" id="1_2e2w2"]
+[ext_resource type="Shader" uid="uid://diq3nytyo0g6r" path="res://scenes/label.gdshader" id="1_4x1ak"]
+[ext_resource type="FontFile" uid="uid://nbruq80r2xme" path="res://m5x7.ttf" id="2_2e2w2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rovvh"]
+shader = ExtResource("1_4x1ak")
+shader_parameter/color = Color(0, 0, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3oeyx"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="LevelComplete" type="ColorRect"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 112.0
+offset_bottom = 112.0
+script = ExtResource("1_2e2w2")
+
+[node name="Label" type="Label" parent="."]
+material = SubResource("ShaderMaterial_rovvh")
+layout_mode = 0
+offset_right = 112.0
+offset_bottom = 112.0
+theme_override_constants/line_spacing = -2
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_2e2w2")
+theme_override_font_sizes/font_size = 16
+text = "Level complete"
+label_settings = SubResource("LabelSettings_3oeyx")
+horizontal_alignment = 1
+vertical_alignment = 1

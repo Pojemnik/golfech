@@ -7,7 +7,7 @@ var max_hit_count: int = 0;
 func _ready() -> void:
 	max_hit_count = GameManager.max_hit_count;
 	GameManager.hit_count_set.connect(_on_hit_count_set);
-	GameManager.level_started.connect(_on_level_stared);
+	GameManager.start_level.connect(_on_level_stared);
 	_update_label();
 	
 

@@ -5,7 +5,7 @@ var max_hit_count: int  = 0;
 
 signal hit_count_set(count: int);
 signal level_finished;
-signal level_started(max_hit_count: int);
+signal start_level(max_hit_count: int);
 
 
 func set_hit_count(count: int):
@@ -22,4 +22,4 @@ func on_flag_reached():
 func call_level_start(count: int):
 	max_hit_count = count;
 	current_hit_count = 0;
-	level_started.emit(max_hit_count);
+	start_level.emit(max_hit_count);
