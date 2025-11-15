@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://clc1dsbbmmr1h"]
+[gd_scene load_steps=4 format=3 uid="uid://cir3h3iqn2nq0"]
 
-[ext_resource type="Shader" uid="uid://2kmpm3nsa0yf" path="res://hpx.gdshader" id="1_0xm2m"]
+[ext_resource type="Shader" path="res://hpx.gdshader" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://drw3t28r5xep0" path="res://GameScene.tscn" id="2_h2yge"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
