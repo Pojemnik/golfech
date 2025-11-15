@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://drs10870eky5e"]
+
+[ext_resource type="Texture2D" uid="uid://chioj5pyy3bv6" path="res://ase/playroom.png" id="1_6lg86"]
+
+[node name="Playroom" type="Node2D"]
+
+[node name="Playroom" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_6lg86")
+centered = false
