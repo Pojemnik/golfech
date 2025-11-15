@@ -70,7 +70,7 @@ func _process_movement():
 
 func _physics_process(delta: float) -> void:
 	if !last_sleep_state and sleeping and rolling:
-		GameManager.increase_hit_count();
+		GameManager.set_hit_count(GameManager.current_hit_count + 1);
 		rolling = false;
 	last_sleep_state = sleeping;
 	handle_height(delta);
@@ -91,6 +91,7 @@ func _on_body_entered(body: Node) -> void:
 	
 	if body.is_in_group("water"):
 		respawn();
+		GameManager.set_hit_count(GameManager.current_hit_count + 1);
 
 
 func flag_hit():
@@ -102,3 +103,9 @@ func handle_height(delta: float):
 	vertical_height = max(vertical_height + vertical_valocity, 0.0)
 	vertical_valocity -= delta * 4.0
 	ball_sprite.position.y = -vertical_height
+
+
+func _input(event):
+	if event.is_action_pressed("restart_level"):
+		respawn();
+		GameManager.set_hit_count(0);
