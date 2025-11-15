@@ -34,6 +34,7 @@ func load_level(level_idx: int):
 	call_deferred("add_child", instance);
 	level = instance;
 	current_level_idx = level_idx;
+	GameManager.call_level_start(levels[level_idx].hit_count);
 
 
 func on_hit_count_increased(count: int):
