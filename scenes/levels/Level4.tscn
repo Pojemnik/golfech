@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://b27yoieqat8ht"]
 
 [ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_545p4"]
-[ext_resource type="PackedScene" uid="uid://cdhr8fbix5ilj" path="res://flag.tscn" id="2_jfjt6"]
-[ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://ball.tscn" id="3_nqeel"]
-[ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://bunker.tscn" id="4_u5lf4"]
-[ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://water.gd" id="6_ewulq"]
+[ext_resource type="PackedScene" uid="uid://cdhr8fbix5ilj" path="res://scenes/flag.tscn" id="2_jfjt6"]
+[ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://scenes/ball.tscn" id="3_nqeel"]
+[ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://scenes/bunker.tscn" id="4_u5lf4"]
+[ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://scripts/water.gd" id="6_ewulq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qlmxs"]
 radius = 20.3
@@ -21,9 +21,6 @@ distance = -112.0
 [node name="Playarea" type="Sprite2D" parent="."]
 texture = ExtResource("1_545p4")
 centered = false
-
-[node name="Flag" parent="." instance=ExtResource("2_jfjt6")]
-position = Vector2(58, 72)
 
 [node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") instance=ExtResource("3_nqeel")]
 position = Vector2(58, 49)
@@ -102,5 +99,8 @@ scale = Vector2(0.4, 0.4)
 [node name="Bunker5" parent="." instance=ExtResource("4_u5lf4")]
 position = Vector2(112.00001, 71)
 scale = Vector2(0.4, 0.4)
+
+[node name="Flag" parent="." instance=ExtResource("2_jfjt6")]
+position = Vector2(58, 72)
 
 [connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]

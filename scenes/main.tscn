@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://cir3h3iqn2nq0"]
 
 [ext_resource type="Shader" path="res://hpx.gdshader" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://bhoi4dhhi2nh5" path="res://Level1.tscn" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://level_loader.gd" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://jy4dwp4l4gor" path="res://Level2.tscn" id="4_7mycd"]
-[ext_resource type="PackedScene" uid="uid://diq7x8l08nkb8" path="res://Level3.tscn" id="5_272bh"]
-[ext_resource type="PackedScene" uid="uid://b27yoieqat8ht" path="res://Level4.tscn" id="6_5vw27"]
+[ext_resource type="PackedScene" uid="uid://bhoi4dhhi2nh5" path="res://scenes/levels/Level1.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://scripts/level_loader.gd" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://jy4dwp4l4gor" path="res://scenes/levels/LevelTest.tscn" id="4_7mycd"]
+[ext_resource type="PackedScene" uid="uid://diq7x8l08nkb8" path="res://scenes/levels/Level3.tscn" id="5_272bh"]
+[ext_resource type="PackedScene" uid="uid://b27yoieqat8ht" path="res://scenes/levels/Level4.tscn" id="6_5vw27"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
 shader = ExtResource("1_0xm2m")

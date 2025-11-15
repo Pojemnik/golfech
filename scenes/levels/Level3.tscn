@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://diq7x8l08nkb8"]
 
 [ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_jfjt6"]
-[ext_resource type="Texture2D" uid="uid://1jiuc0mmdlb2" path="res://tex/flag.png" id="2_0vw6x"]
-[ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://ball.tscn" id="3_cgold"]
-[ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://bunker.tscn" id="4_evb8c"]
-[ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://water.gd" id="5_yqqjl"]
+[ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://scenes/ball.tscn" id="3_cgold"]
+[ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://scenes/bunker.tscn" id="4_evb8c"]
+[ext_resource type="PackedScene" uid="uid://cdhr8fbix5ilj" path="res://scenes/flag.tscn" id="5_3825t"]
+[ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://scripts/water.gd" id="5_yqqjl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qlmxs"]
 
@@ -23,13 +23,7 @@ centered = false
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(14, 56)
 
-[node name="Flag" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(89, 58)
-texture = ExtResource("2_0vw6x")
-offset = Vector2(0.5, 0)
-
-[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") groups=["ball"] instance=ExtResource("3_cgold")]
+[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") instance=ExtResource("3_cgold")]
 position = Vector2(14, 56)
 spawnpoint = NodePath("../Spawnpoint")
 
@@ -88,5 +82,8 @@ shape = SubResource("WorldBoundaryShape2D_8qnej")
 position = Vector2(112, 112)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="Flag2" parent="." instance=ExtResource("5_3825t")]
+position = Vector2(89, 58)
 
 [connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]

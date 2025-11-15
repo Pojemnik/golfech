@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://rui87mm4fd88"]
 
-[ext_resource type="Script" uid="uid://cm88s6emtb80t" path="res://magnet.gd" id="1_wu1kv"]
+[ext_resource type="Script" uid="uid://cm88s6emtb80t" path="res://scripts/magnet.gd" id="1_wu1kv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1kil2"]
 
