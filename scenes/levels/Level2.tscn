@@ -1,14 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://jy4dwp4l4gor"]
+[gd_scene load_steps=9 format=3 uid="uid://jy4dwp4l4gor"]
 
 [ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_twycr"]
 [ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://scenes/ball.tscn" id="3_e3qul"]
 [ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://scenes/bunker.tscn" id="4_dpm1s"]
 [ext_resource type="PackedScene" uid="uid://bil7klfgsihs8" path="res://scenes/wormhole.tscn" id="5_mcssb"]
-[ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://scripts/water.gd" id="6_dwyyt"]
+[ext_resource type="PackedScene" uid="uid://dbdteh5tvv4sh" path="res://scenes/water.tscn" id="6_e5vnl"]
 [ext_resource type="PackedScene" uid="uid://cdhr8fbix5ilj" path="res://scenes/flag.tscn" id="7_a6cvn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2arf"]
-size = Vector2(20.121023, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qnej"]
 size = Vector2(8, 8)
@@ -39,31 +36,6 @@ output = NodePath("../Wormhole")
 [node name="Wormhole" parent="." node_paths=PackedStringArray("output") instance=ExtResource("5_mcssb")]
 position = Vector2(108, 58)
 output = NodePath("../Wormhole2")
-
-[node name="Water" type="Area2D" parent="."]
-position = Vector2(58, 54)
-script = ExtResource("6_dwyyt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
-position = Vector2(0, -10)
-shape = SubResource("RectangleShape2D_i2arf")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Water"]
-position = Vector2(8, -28)
-rotation = -0.5235988
-shape = SubResource("RectangleShape2D_i2arf")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Water"]
-position = Vector2(5.0000005, -3.999998)
-rotation = -1.1693707
-scale = Vector2(3, 0.5)
-shape = SubResource("RectangleShape2D_i2arf")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Water"]
-position = Vector2(3, 28)
-rotation = -1.9006636
-scale = Vector2(2, 0.5)
-shape = SubResource("RectangleShape2D_i2arf")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -121,5 +93,22 @@ shape = SubResource("WorldBoundaryShape2D_8qnej")
 [node name="Flag" parent="." instance=ExtResource("7_a6cvn")]
 position = Vector2(89, 58)
 
+[node name="water" type="Node2D" parent="." groups=["water"]]
+
+[node name="Water2" parent="water" instance=ExtResource("6_e5vnl")]
+position = Vector2(63, 30)
+
+[node name="Water3" parent="water" instance=ExtResource("6_e5vnl")]
+position = Vector2(61, 47.000004)
+rotation = 0.9038363
+
+[node name="Water4" parent="water" instance=ExtResource("6_e5vnl")]
+position = Vector2(57.999996, 64.00001)
+rotation = 2.436901
+
+[node name="Water5" parent="water" instance=ExtResource("6_e5vnl")]
+position = Vector2(62.000008, 80)
+rotation = -1.4093832
+scale = Vector2(0.99999994, 0.99999994)
+
 [connection signal="body_exited" from="Wormhole" to="Wormhole" method="_on_body_exited"]
-[connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]

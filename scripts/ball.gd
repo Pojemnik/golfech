@@ -67,7 +67,7 @@ func _input(event: InputEvent) -> void:
 		rolling = true;
 		start_vector = null;
 		vertical_valocity = 0.005 * impulse.length()
-		$AudioStreamPlayerBigBonk.play(0.16)
+		$AudioStreamPlayerBigBonk.play(0.09)
 		
 	if event.is_action_released("lmb"):
 		start_vector = null
@@ -89,7 +89,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
+	print("enetred body from ball")
 	if body.is_in_group("sticky"):
+		("enterd sticky")
 		var dir = -linear_velocity.normalized()
 		var from = global_position - dir * 5;
 		var to = from + dir * 10.0
@@ -101,11 +103,12 @@ func _on_body_entered(body: Node) -> void:
 			
 		stop()
 	
-	elif body.is_in_group("water"):
-		respawn();
-		GameManager.set_hit_count(GameManager.current_hit_count + 1);
+	#if body.is_in_group("water"):
+		#respawn();
+		#GameManager.set_hit_count(GameManager.current_hit_count + 1);
 		
 	else:
+		print("enetred something else")
 		$AudioStreamPlayerSmallBonk.play()
 
 

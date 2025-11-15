@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbdteh5tvv4sh"]
+[gd_scene load_steps=4 format=3 uid="uid://dbdteh5tvv4sh"]
 
 [ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://scripts/water.gd" id="1_bdk6y"]
+[ext_resource type="AudioStream" uid="uid://ciidqeq2vmxbs" path="res://sound/water_plum.wav" id="2_s3811"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i2arf"]
 
@@ -10,3 +11,9 @@ script = ExtResource("1_bdk6y")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_i2arf")
 debug_color = Color(0, 0.54405063, 0.9461834, 0.41960785)
+
+[node name="AudioStreamPlayerWaterPlum" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s3811")
+volume_db = -1.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
