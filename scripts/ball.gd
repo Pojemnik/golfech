@@ -44,6 +44,10 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
+	_process_movement();
+
+
+func _process_movement():
 	if Input.is_action_just_pressed("lmb") and !rolling and !tools_manager.selected_brush:
 		start_vector = get_viewport().get_mouse_position();
 	
@@ -91,7 +95,6 @@ func flag_hit():
 
 func handle_height():
 	var target_height = linear_velocity.length() * height_ratio;
-	print(linear_velocity.length());
 	if linear_velocity.length() < max_rolling_speed:
 		target_height = 0;
 	var diff = target_height - ball_sprite.position.y;

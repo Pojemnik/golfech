@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf2gnqldjnayc"]
+
+[ext_resource type="Script" uid="uid://che3fx5fx8lm4" path="res://scripts/ball_trail.gd" id="1_ypmfi"]
+
+[sub_resource type="Curve" id="Curve_4dx81"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="BallTrail" type="Line2D"]
+width = 2.0
+width_curve = SubResource("Curve_4dx81")
+default_color = Color(0.6872149, 0.68721503, 0.6872149, 1)
+script = ExtResource("1_ypmfi")
+trail_length = 60
