@@ -7,9 +7,9 @@ var selected_brush: bool = false;
 var selected_bat: int;
 var selected_paint: Vector2i;
 
-#signal brush_selected;
-#signal bat_selected(bat_idx: int);
-#signal paint_selected(paint_idx: int);
+signal brush_selected;
+signal bat_selected(bat_idx: int);
+signal paint_selected(paint_idx: Vector2i);
 
 func _input(event):
 	if event.is_action_pressed("select_brush"):
@@ -32,6 +32,7 @@ func select_bat(idx: int):
 		idx = 0;
 	selected_bat = idx;
 	selected_brush = false;
+	bat_selected.emit(idx);
 	print("Selected bat: ", selected_bat);
 	
 	
@@ -43,8 +44,10 @@ func get_current_paint():
 
 func select_brush():
 	selected_brush = true;
+	brush_selected.emit();
 	print("Selected brush");
 
 func select_paint(idx: Vector2i):
-	selected_paint = idx
+	selected_paint = idx;
+	paint_selected.emit(idx);
 	print("Selected paint");
