@@ -1,0 +1,111 @@
+[gd_scene load_steps=10 format=3 uid="uid://jy4dwp4l4gor"]
+
+[ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_8qnej"]
+[ext_resource type="Texture2D" uid="uid://1jiuc0mmdlb2" path="res://tex/flag.png" id="2_ncqfc"]
+[ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://ball.tscn" id="3_qgfn2"]
+[ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://bunker.tscn" id="4_edmbx"]
+[ext_resource type="PackedScene" uid="uid://bil7klfgsihs8" path="res://wormhole.tscn" id="5_k505m"]
+[ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://water.gd" id="6_mujx1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2arf"]
+size = Vector2(20.121023, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qnej"]
+size = Vector2(8, 8)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8qnej"]
+distance = -112.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Playarea" type="Sprite2D" parent="."]
+texture = ExtResource("1_8qnej")
+centered = false
+
+[node name="Spawnpoint" type="Node2D" parent="."]
+position = Vector2(14, 56)
+
+[node name="Flag" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(89, 58)
+texture = ExtResource("2_ncqfc")
+offset = Vector2(0.5, 0)
+
+[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") groups=["ball"] instance=ExtResource("3_qgfn2")]
+position = Vector2(14, 56)
+spawnpoint = NodePath("../Spawnpoint")
+
+[node name="Bunker" parent="." instance=ExtResource("4_edmbx")]
+position = Vector2(237, 196)
+
+[node name="Wormhole2" parent="." node_paths=PackedStringArray("output") instance=ExtResource("5_k505m")]
+position = Vector2(4, 56)
+output = NodePath("../Wormhole")
+
+[node name="Wormhole" parent="." node_paths=PackedStringArray("output") instance=ExtResource("5_k505m")]
+position = Vector2(108, 58)
+output = NodePath("../Wormhole2")
+
+[node name="Water" type="Area2D" parent="."]
+position = Vector2(58, 54)
+script = ExtResource("6_mujx1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
+shape = SubResource("RectangleShape2D_i2arf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Water"]
+position = Vector2(8, -18)
+rotation = -0.5235988
+shape = SubResource("RectangleShape2D_i2arf")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Water"]
+position = Vector2(0, 8)
+rotation = -1.0471976
+scale = Vector2(5, 0.5)
+shape = SubResource("RectangleShape2D_i2arf")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Water"]
+position = Vector2(4, -39)
+rotation = -1.9006636
+scale = Vector2(2, 0.5)
+shape = SubResource("RectangleShape2D_i2arf")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Node2D"]
+position = Vector2(7.000004, 88.99999)
+rotation = 0.46251225
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D5"]
+scale = Vector2(15, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Node2D"]
+position = Vector2(8, 23)
+rotation = -0.46251225
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D6"]
+scale = Vector2(15, 1)
+shape = SubResource("RectangleShape2D_8qnej")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D3"]
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(112, 112)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(112, 112)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[connection signal="body_exited" from="Wormhole" to="Wormhole" method="_on_body_exited"]
+[connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]

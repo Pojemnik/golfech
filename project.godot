@@ -15,6 +15,10 @@ run/main_scene="uid://cir3h3iqn2nq0"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[global_group]
+
+ball=""
+
 [input]
 
 lmb={
