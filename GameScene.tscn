@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://drw3t28r5xep0"]
+[gd_scene load_steps=10 format=3 uid="uid://drw3t28r5xep0"]
 
 [ext_resource type="Texture2D" uid="uid://4i27goxt5wdu" path="res://icon.svg" id="1_eqhe0"]
 [ext_resource type="Script" uid="uid://ckfhh2dky166s" path="res://ball.gd" id="1_k77ap"]
 [ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://bunker.tscn" id="3_haeiw"]
 [ext_resource type="PackedScene" uid="uid://bil7klfgsihs8" path="res://wormhole.tscn" id="4_b5kf5"]
+[ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://water.gd" id="5_hvuor"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k77ap"]
 friction = 0.0
@@ -14,14 +15,20 @@ bounce = 1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqhe0"]
 size = Vector2(20, 120)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2arf"]
+
 [node name="Node2D" type="Node2D"]
 
-[node name="Ball" type="RigidBody2D" parent="."]
+[node name="Spawnpoint" type="Node2D" parent="."]
+position = Vector2(14, -13)
+
+[node name="Ball" type="RigidBody2D" parent="." node_paths=PackedStringArray("spawnpoint")]
 position = Vector2(14, -13)
 physics_material_override = SubResource("PhysicsMaterial_k77ap")
 gravity_scale = 0.0
 linear_damp = 1.0
 script = ExtResource("1_k77ap")
+spawnpoint = NodePath("../Spawnpoint")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource("CircleShape2D_f24su")
@@ -54,4 +61,12 @@ output = NodePath("../Wormhole")
 position = Vector2(-80, -68)
 output = NodePath("../Wormhole2")
 
+[node name="Water" type="Area2D" parent="."]
+position = Vector2(-59, 40)
+script = ExtResource("5_hvuor")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
+shape = SubResource("RectangleShape2D_i2arf")
+
 [connection signal="body_exited" from="Wormhole" to="Wormhole" method="_on_body_exited"]
+[connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
