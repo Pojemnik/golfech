@@ -13,8 +13,10 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	ball = body as RigidBody2D;
+	if body.is_in_group("ball"):
+		ball = body as RigidBody2D;
 
 
 func _on_body_exited(body: Node2D) -> void:
-	ball = null;
+	if body.is_in_group("ball"):
+		ball = null;
