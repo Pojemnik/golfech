@@ -1,16 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://drw3t28r5xep0"]
+[gd_scene load_steps=8 format=3 uid="uid://drw3t28r5xep0"]
 
-[ext_resource type="Texture2D" uid="uid://4i27goxt5wdu" path="res://icon.svg" id="1_eqhe0"]
-[ext_resource type="Script" uid="uid://ckfhh2dky166s" path="res://ball.gd" id="1_k77ap"]
-[ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://bunker.tscn" id="3_haeiw"]
-[ext_resource type="PackedScene" uid="uid://bil7klfgsihs8" path="res://wormhole.tscn" id="4_b5kf5"]
-[ext_resource type="Script" uid="uid://digcmhtjwatr2" path="res://water.gd" id="5_hvuor"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k77ap"]
-friction = 0.0
-bounce = 1.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_f24su"]
+[ext_resource type="PackedScene" uid="uid://le22gcboi3a3" path="res://ball.tscn" id="2_hvuor"]
+[ext_resource type="Texture2D" uid="uid://1jiuc0mmdlb2" path="res://tex/flag.png" id="3_1kil2"]
+[ext_resource type="PackedScene" path="res://bunker.tscn" id="3_haeiw"]
+[ext_resource type="PackedScene" path="res://wormhole.tscn" id="4_b5kf5"]
+[ext_resource type="Script" path="res://water.gd" id="5_hvuor"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqhe0"]
 size = Vector2(20, 120)
@@ -22,23 +16,15 @@ size = Vector2(20, 120)
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(14, -13)
 
-[node name="Ball" type="RigidBody2D" parent="." node_paths=PackedStringArray("spawnpoint")]
-position = Vector2(14, -13)
-physics_material_override = SubResource("PhysicsMaterial_k77ap")
-gravity_scale = 0.0
-linear_damp = 1.0
-script = ExtResource("1_k77ap")
+[node name="Flag" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(60, 76)
+texture = ExtResource("3_1kil2")
+offset = Vector2(0.5, 0)
+
+[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") instance=ExtResource("2_hvuor")]
+position = Vector2(32, 43)
 spawnpoint = NodePath("../Spawnpoint")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource("CircleShape2D_f24su")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ball"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_eqhe0")
-
-[node name="Line2D" type="Line2D" parent="Ball"]
-points = PackedVector2Array(0, 0, 50, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(77, -34)
@@ -47,11 +33,8 @@ rotation = -0.67284924
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_eqhe0")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-
 [node name="Bunker" parent="." instance=ExtResource("3_haeiw")]
-position = Vector2(56, 47)
+position = Vector2(115, 80)
 
 [node name="Wormhole2" parent="." node_paths=PackedStringArray("output") instance=ExtResource("4_b5kf5")]
 position = Vector2(-75, -15)

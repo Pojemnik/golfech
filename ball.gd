@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		start_vector = get_viewport().get_mouse_position();
 	
 	if (start_vector):
-		current_vector = (get_viewport().get_mouse_position() - start_vector) / 3;
+		current_vector = (get_viewport().get_mouse_position() - start_vector);
 		$Line2D.points = [Vector2.ZERO, current_vector];
 	else:
 		$Line2D.points = [];
