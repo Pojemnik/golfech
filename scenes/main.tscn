@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cir3h3iqn2nq0"]
+[gd_scene load_steps=23 format=3 uid="uid://cir3h3iqn2nq0"]
 
 [ext_resource type="Shader" uid="uid://2kmpm3nsa0yf" path="res://hpx.gdshader" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://scripts/level_loader.gd" id="2_h2yge"]
@@ -9,7 +9,9 @@
 [ext_resource type="Resource" uid="uid://boo4t0v5pd1ih" path="res://level_data/Level3.tres" id="6_85g3d"]
 [ext_resource type="Resource" uid="uid://uxo1ccn85mqg" path="res://level_data/Level4.tres" id="7_choun"]
 [ext_resource type="Script" uid="uid://b7b5aswqoe1vu" path="res://scripts/tools.gd" id="7_o6xl0"]
+[ext_resource type="Shader" uid="uid://diq3nytyo0g6r" path="res://scenes/label.gdshader" id="11_0ld40"]
 [ext_resource type="Texture2D" uid="uid://bokutfbfm2gd1" path="res://ase/easel.png" id="11_ya4ey"]
+[ext_resource type="FontFile" uid="uid://nbruq80r2xme" path="res://m5x7.ttf" id="12_0ld40"]
 [ext_resource type="Texture2D" uid="uid://cabhpl2exoi3s" path="res://tex/driver.png" id="12_trceg"]
 [ext_resource type="Texture2D" uid="uid://c2dos2y4jb1ep" path="res://tex/driver_selected.png" id="13_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://2sfmfusnwfqk" path="res://tex/chipper.png" id="13_jkv2x"]
@@ -24,6 +26,9 @@ shader = ExtResource("1_0xm2m")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
 shader = ExtResource("1_0xm2m")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yc10j"]
+shader = ExtResource("11_0ld40")
+
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -37,7 +42,7 @@ layout_mode = 0
 offset_right = 152.0
 offset_bottom = 176.0
 scale = Vector2(5, 5)
-color = Color(0.78063214, 0.91776615, 0.9692388, 1)
+color = Color(1, 0.71573704, 0.53279096, 1)
 
 [node name="ToolsManager" type="Node" parent="." node_paths=PackedStringArray("chipper", "driver", "paintbrush", "grass_button", "bunker_button")]
 script = ExtResource("7_o6xl0")
@@ -97,6 +102,20 @@ offset_left = -8.2
 offset_top = 29.0
 offset_right = 179.79999
 offset_bottom = 140.99998
+
+[node name="Label" type="Label" parent="UiViewport/SubViewport/Control"]
+material = SubResource("ShaderMaterial_yc10j")
+layout_mode = 0
+offset_left = 8.2
+offset_top = -29.0
+offset_right = 48.2
+offset_bottom = -6.0
+theme_override_constants/line_spacing = -2
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("12_0ld40")
+theme_override_font_sizes/font_size = 16
+text = "siema eniu
+012345"
 
 [node name="Driver" type="TextureButton" parent="UiViewport/SubViewport/Control"]
 layout_mode = 0
