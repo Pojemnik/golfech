@@ -1,6 +1,6 @@
 extends ColorRect
 
-@export var tween_duration: float = 2.0;
+@export var tween_duration: float = 0.4;
 
 signal tween_end;
 
@@ -10,6 +10,8 @@ var next_text;
 const bg_color = Color("ffffeb");
 
 func on_tween_end():
+	var timer = get_tree().create_timer(2.0)
+	await timer.timeout
 	tween_end.emit();
 
 
@@ -24,6 +26,7 @@ func show_with_text(text: String):
 	tween.set_parallel(true);
 	tween.tween_method(set_shader_value, Color.TRANSPARENT, Color.BLACK, tween_duration);
 	tween.set_parallel(false);
+	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(on_tween_end);
 	text_visible = true;
 	bg_visible = true;
@@ -31,6 +34,7 @@ func show_with_text(text: String):
 
 func fade_out(text: bool, bg: bool):
 	var tween = get_tree().create_tween();
+	tween.set_ease(Tween.EASE_IN_OUT)
 	if text:
 		tween.tween_method(set_shader_value, Color.BLACK, Color.TRANSPARENT, tween_duration);
 		if bg:
@@ -47,6 +51,7 @@ func fade_out(text: bool, bg: bool):
 
 func change_text(text: String):
 	var tween = get_tree().create_tween();
+	tween.set_ease(Tween.EASE_IN_OUT)
 	if text_visible:
 		next_text = text;
 		tween.tween_method(set_shader_value, Color.BLACK, Color.TRANSPARENT, tween_duration * 3);

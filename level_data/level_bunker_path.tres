@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("2_uy61d")
 scene = ExtResource("1_v1gwb")
-hit_count = 1
+hit_count = 2
 name = "Bunker path"
 metadata/_custom_type_script = "uid://cl52acjotwrwi"

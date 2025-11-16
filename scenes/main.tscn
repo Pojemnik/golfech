@@ -1,9 +1,9 @@
 [gd_scene load_steps=53 format=3 uid="uid://cir3h3iqn2nq0"]
 
-[ext_resource type="Shader" path="res://hpx.gdshader" id="1_0xm2m"]
+[ext_resource type="Shader" uid="uid://2kmpm3nsa0yf" path="res://hpx.gdshader" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://scripts/level_loader.gd" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://cl52acjotwrwi" path="res://scripts/level_data.gd" id="3_tbgi4"]
-[ext_resource type="Resource" uid="uid://cugfpqgkgni66" path="res://level_data/TestLevel.tres" id="4_85g3d"]
+[ext_resource type="Resource" path="res://level_data/TestLevel.tres" id="4_85g3d"]
 [ext_resource type="Resource" uid="uid://25ggux654l50" path="res://level_data/level_teleport_water.tres" id="5_tipki"]
 [ext_resource type="Resource" uid="uid://ck18hjmkeg2w7" path="res://level_data/level_bunker_path.tres" id="6_2f3dj"]
 [ext_resource type="Resource" uid="uid://boo4t0v5pd1ih" path="res://level_data/level_lake.tres" id="6_85g3d"]
@@ -152,7 +152,7 @@ handle_input_locally = false
 size = Vector2i(112, 112)
 render_target_update_mode = 4
 script = ExtResource("2_h2yge")
-levels = Array[ExtResource("3_tbgi4")]([ExtResource("17_tel4y"), ExtResource("6_og1vs"), ExtResource("7_2wyq8"), ExtResource("6_85g3d"), ExtResource("15_yq6so"), ExtResource("6_vxglm"), ExtResource("18_qkpxi"), ExtResource("6_2f3dj"), ExtResource("5_tipki"), ExtResource("6_j8jky"), ExtResource("18_qkpxi"), ExtResource("16_fv21b"), ExtResource("7_choun"), ExtResource("6_kmb1v"), ExtResource("4_85g3d")])
+levels = Array[ExtResource("3_tbgi4")]([ExtResource("6_vxglm"), ExtResource("18_qkpxi"), ExtResource("16_fv21b"), ExtResource("5_tipki"), ExtResource("7_choun"), ExtResource("17_tel4y"), ExtResource("6_j8jky"), ExtResource("6_kmb1v"), ExtResource("4_85g3d"), ExtResource("6_2f3dj"), ExtResource("6_og1vs"), ExtResource("6_85g3d"), ExtResource("7_2wyq8"), ExtResource("18_qkpxi"), ExtResource("15_yq6so")])
 
 [node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport"]
 offset_right = 112.0
@@ -231,6 +231,7 @@ offset_right = 22.964003
 offset_bottom = 95.96001
 toggle_mode = true
 shortcut = SubResource("Shortcut_pibwh")
+shortcut_in_tooltip = false
 texture_normal = ExtResource("12_trceg")
 texture_pressed = ExtResource("13_a8y0u")
 texture_click_mask = ExtResource("26_5q0nq")
@@ -248,6 +249,7 @@ offset_right = 19.964005
 offset_bottom = 97.03201
 toggle_mode = true
 shortcut = SubResource("Shortcut_c6pm6")
+shortcut_in_tooltip = false
 texture_normal = ExtResource("13_jkv2x")
 texture_pressed = ExtResource("14_jbj1t")
 texture_click_mask = ExtResource("29_dgi5k")
@@ -264,21 +266,25 @@ theme_override_constants/separation = 1
 [node name="Grass" type="TextureButton" parent="UiViewport/SubViewport/Control/VBoxContainer"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_5poiv")
+shortcut_in_tooltip = false
 texture_normal = ExtResource("17_dp3eg")
 
 [node name="Bunker" type="TextureButton" parent="UiViewport/SubViewport/Control/VBoxContainer"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_chjal")
+shortcut_in_tooltip = false
 texture_normal = ExtResource("18_0ld40")
 
 [node name="Water" type="TextureButton" parent="UiViewport/SubViewport/Control/VBoxContainer"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_vchkt")
+shortcut_in_tooltip = false
 texture_normal = ExtResource("22_y6deb")
 
 [node name="Wall" type="TextureButton" parent="UiViewport/SubViewport/Control/VBoxContainer"]
 layout_mode = 2
 shortcut = SubResource("Shortcut_vc5cj")
+shortcut_in_tooltip = false
 texture_normal = ExtResource("23_og1vs")
 
 [node name="Paintbrush" type="Sprite2D" parent="UiViewport/SubViewport/Control"]

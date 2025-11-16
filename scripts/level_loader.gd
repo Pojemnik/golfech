@@ -21,9 +21,9 @@ func next_level():
 
 func load_level(level_idx: int):
 	if $LevelComplete.bg_visible:
-		$LevelComplete.change_text("Hole %d (%s)\npar %d" % [level_idx + 1, levels[level_idx].name, levels[level_idx].hit_count])
+		$LevelComplete.change_text("Hole %d \"%s\"\npar %d" % [level_idx + 1, levels[level_idx].name, levels[level_idx].hit_count])
 	else:
-		$LevelComplete.show_with_text("Hole %d (%s)\npar %d" % [level_idx + 1, levels[level_idx].name, levels[level_idx].hit_count])
+		$LevelComplete.show_with_text("Hole %d \"%s\"\npar %d" % [level_idx + 1, levels[level_idx].name, levels[level_idx].hit_count])
 	await $LevelComplete.tween_end;
 	$LevelComplete.fade_out(true, true);
 	$"../../UiViewport/SubViewport/Control/LevelTitle".text = levels[level_idx].name;
