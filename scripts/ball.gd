@@ -53,6 +53,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_process_movement();
+	if $Line2D.points.size() > 0:
+		$Strength.visible = true
+	else:
+		$Strength.visible = false
 
 var vertical_valocity = 0.0;
 var vertical_height = 0.0;
@@ -63,9 +67,16 @@ func _input(event: InputEvent) -> void:
 		start_vector = get_viewport().get_mouse_position();
 	
 	if start_vector and tools_manager.selected_tool == 'club':
+		if $Line2D.points.size() == 0:
+			$AudioStreamPlayerStretch.pitch_scale = 1.0 + randf() * 0.1
+			$AudioStreamPlayerStretch.play()
 		current_vector = (get_viewport().get_mouse_position() - start_vector);
 		current_vector = current_vector.normalized() * clamp(current_vector.length(), 0, max_force_input)
 		$Line2D.points = [Vector2.ZERO, current_vector];
+		
+		#fwifhweoifbwefwef
+		$Strength.position = current_vector
+		$Strength.scale =  Vector2(0.5, 0.5) + Vector2(current_vector.length(),current_vector.length()) * 0.025
 	else:
 		$Line2D.points = [];
 		

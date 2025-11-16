@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dv3jvvqi837e3"]
+[gd_scene load_steps=11 format=3 uid="uid://dv3jvvqi837e3"]
 
 [ext_resource type="Script" uid="uid://ckfhh2dky166s" path="res://scripts/ball.gd" id="1_41u45"]
 [ext_resource type="Texture2D" uid="uid://dudcad3qnopsm" path="res://tex/ball_shadow.png" id="2_f7cbr"]
 [ext_resource type="Texture2D" uid="uid://8ewvrwenv2sg" path="res://tex/ball.png" id="2_ktgx5"]
 [ext_resource type="AudioStream" uid="uid://c605msjcqur3p" path="res://sound/bonk2.wav" id="4_4dx81"]
 [ext_resource type="AudioStream" uid="uid://dgwa6y6v70dic" path="res://sound/lower_wall_bonk.wav" id="5_eew57"]
+[ext_resource type="Texture2D" uid="uid://muxqjgdqvbow" path="res://tex/strength.png" id="6_jj7gd"]
+[ext_resource type="AudioStream" uid="uid://m02x17ea5e63" path="res://sound/stretch.ogg" id="7_fwo8l"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k77ap"]
 friction = 0.0
@@ -12,6 +14,10 @@ bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f24su"]
 radius = 2.0
+
+[sub_resource type="Curve" id="Curve_jj7gd"]
+_data = [Vector2(0, 0.50164294), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Ball" type="RigidBody2D" groups=["ball"]]
 physics_material_override = SubResource("PhysicsMaterial_k77ap")
@@ -29,9 +35,9 @@ max_rolling_speed = 60.0
 shape = SubResource("CircleShape2D_f24su")
 
 [node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(0, 0, 0, 0)
-width = 2.0
-default_color = Color(1, 0.2, 0.2627451, 1)
+width = 4.0
+width_curve = SubResource("Curve_jj7gd")
+default_color = Color(0.92156863, 0.3372549, 0.29411766, 1)
 
 [node name="BallShadow" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -50,5 +56,18 @@ stream = ExtResource("4_4dx81")
 stream = ExtResource("5_eew57")
 volume_db = 3.666
 pitch_scale = 0.8
+
+[node name="Strength" type="Node2D" parent="."]
+visible = false
+position = Vector2(8, 0)
+
+[node name="Strength" type="Sprite2D" parent="Strength"]
+texture_filter = 1
+scale = Vector2(0.145, 0.145)
+texture = ExtResource("6_jj7gd")
+
+[node name="AudioStreamPlayerStretch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_fwo8l")
+volume_db = -12.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
