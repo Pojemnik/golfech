@@ -92,7 +92,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	print("enetred body from ball")
 	if body.is_in_group("sticky"):
 		("enterd sticky")
 		var dir = -linear_velocity.normalized()
@@ -111,7 +110,6 @@ func _on_body_entered(body: Node) -> void:
 		#GameManager.set_hit_count(GameManager.current_hit_count + 1);
 		
 	else:
-		print("enetred something else")
 		$AudioStreamPlayerSmallBonk.play()
 
 
