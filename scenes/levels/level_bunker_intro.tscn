@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://nthacbpo6nx0"]
+[gd_scene load_steps=17 format=3 uid="uid://cd3ygawjufski"]
 
 [ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_laj04"]
 [ext_resource type="Shader" uid="uid://pqn51wpyjwdg" path="res://scenes/levels/painting.gdshader" id="2_tw77m"]
