@@ -167,6 +167,7 @@ offset_right = 112.0
 offset_bottom = 112.0
 
 [node name="LevelComplete" parent="SubViewportContainer/SubViewport" instance=ExtResource("11_yc10j")]
+color = Color(1, 1, 1, 1)
 
 [node name="UiViewport" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_choun")
