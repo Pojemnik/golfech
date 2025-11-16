@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cyegs57otvtnn"]
+[gd_scene load_steps=0 format=3 uid="uid://cyegs57otvtnn"]
 
 [node name="Splat" type="CPUParticles2D"]
 emitting = false

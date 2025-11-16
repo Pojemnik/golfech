@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://durddq06esj3m"]
+
+[ext_resource type="PackedScene" uid="uid://c6bpf1ewt8au7" path="res://scenes/levels/level_sticky_bay.tscn" id="1_ajxa5"]
+[ext_resource type="Script" uid="uid://cl52acjotwrwi" path="res://scripts/level_data.gd" id="2_cadk1"]
+
+[resource]
+script = ExtResource("2_cadk1")
+scene = ExtResource("1_ajxa5")
+hit_count = 4
+name = "Sticky bay"
+metadata/_custom_type_script = "uid://cl52acjotwrwi"
