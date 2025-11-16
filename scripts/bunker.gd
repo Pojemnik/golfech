@@ -7,7 +7,7 @@ var fade_tween: Tween
 const FADE_IN_TIME := 0.2
 const FADE_OUT_TIME := 0.2
 
-var particles_instance: GPUParticles2D;
+var particles_instance: CPUParticles2D;
 var current_body: Node2D;
 
 func _on_body_entered(body: Node2D) -> void:

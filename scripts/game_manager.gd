@@ -8,11 +8,17 @@ signal hit_count_set(count: int);
 signal level_finished;
 signal start_level(max_hit_count: int);
 signal flag_reached_without_finish;
+signal reached_move_max
+signal restarted_level
 
 
 func set_hit_count(count: int):
 	current_hit_count = count;
 	hit_count_set.emit(current_hit_count);
+	if current_hit_count == 0:
+		restarted_level.emit()
+	if current_hit_count >= max_hit_count:
+		reached_move_max.emit()
 
 
 func on_flag_reached():

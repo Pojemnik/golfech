@@ -1,34 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4gn6gsyd4xes"]
+[gd_scene load_steps=4 format=3 uid="uid://b4gn6gsyd4xes"]
+
+[ext_resource type="Script" uid="uid://b2lmimwh621kr" path="res://scenes/sand_particles.gd" id="1_3tg0v"]
 
 [sub_resource type="Gradient" id="Gradient_eew57"]
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.76, 0.70933336, 0, 1)
+colors = PackedColorArray(1, 0.72156864, 0.44313726, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jj7gd"]
 gradient = SubResource("Gradient_eew57")
 width = 1
 
-[sub_resource type="Curve" id="Curve_eew57"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.34839112), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_jj7gd"]
-curve = SubResource("Curve_eew57")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fwo8l"]
-particle_flag_disable_z = true
-direction = Vector3(0, -1, 0)
-spread = 50.0
-initial_velocity_min = 10.0
-initial_velocity_max = 20.0
-gravity = Vector3(0, 25, 0)
-scale_curve = SubResource("CurveTexture_jj7gd")
-
-[node name="SandParticles" type="GPUParticles2D"]
-amount = 12
+[node name="SandParticles" type="CPUParticles2D"]
+emitting = false
+amount = 60
 texture = SubResource("GradientTexture1D_jj7gd")
-lifetime = 0.6
-explosiveness = 0.2
-process_material = SubResource("ParticleProcessMaterial_fwo8l")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.6
+randomness = 1.0
+lifetime_randomness = 0.82
+direction = Vector2(0, -1)
+gravity = Vector2(0, 300)
+initial_velocity_min = 17.99
+initial_velocity_max = 70.65
+script = ExtResource("1_3tg0v")
 
 [connection signal="finished" from="." to="." method="_on_finished"]
