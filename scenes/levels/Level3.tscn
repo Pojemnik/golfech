@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://diq7x8l08nkb8"]
+[gd_scene load_steps=8 format=3 uid="uid://diq7x8l08nkb8"]
 
 [ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_jfjt6"]
 [ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://scenes/ball.tscn" id="3_cgold"]
-[ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://scenes/bunker.tscn" id="4_evb8c"]
 [ext_resource type="PackedScene" uid="uid://dbdteh5tvv4sh" path="res://scenes/water.tscn" id="5_6qpip"]
 [ext_resource type="PackedScene" uid="uid://cdhr8fbix5ilj" path="res://scenes/flag.tscn" id="5_3825t"]
 
@@ -26,15 +25,6 @@ position = Vector2(14, 56)
 [node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") instance=ExtResource("3_cgold")]
 position = Vector2(14, 56)
 spawnpoint = NodePath("../Spawnpoint")
-
-[node name="Bunker" parent="." instance=ExtResource("4_evb8c")]
-position = Vector2(-34, 54)
-
-[node name="Bunker" parent="Bunker" instance=ExtResource("4_evb8c")]
-position = Vector2(164, 74)
-
-[node name="Bunker" parent="Bunker/Bunker" instance=ExtResource("4_evb8c")]
-position = Vector2(0, -132)
 
 [node name="Node2D" type="Node2D" parent="."]
 

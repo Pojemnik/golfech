@@ -7,6 +7,7 @@ extends RigidBody2D
 @export var max_rolling_speed: float;
 
 signal restart
+signal movement_sound_signal(state: bool)
 
 var start_vector = null;
 var current_vector = Vector2.ZERO;
@@ -15,6 +16,8 @@ var tools_manager: Tools;
 var last_sleep_state: bool = true;
 var rolling: bool = false;
 var ball_sprite: Sprite2D;
+var ball_in_bunker: bool = false;
+
 
 func respawn() -> void:
 	restart.emit()
@@ -38,6 +41,8 @@ func stop() -> void:
 	angular_velocity = 0;
 	last_sleep_state = true;
 	rolling = false;
+
+
 	
 
 func _ready() -> void:
@@ -47,6 +52,7 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
+		
 	_process_movement();
 
 var vertical_valocity = 0.0;
@@ -68,10 +74,15 @@ func _input(event: InputEvent) -> void:
 		var impulse = -current_vector * tools_manager.get_current_bat_force()
 		apply_impulse(impulse);
 		rolling = true;
+
+		movement_sound_signal.emit(rolling)
 		start_vector = null;
 		vertical_valocity = 0.005 * impulse.length()
 		$AudioStreamPlayerBigBonk.play(0.09)
-		
+
+			
+			
+			
 	if event.is_action_released("lmb"):
 		start_vector = null
 		
@@ -84,8 +95,11 @@ func _process_movement():
 
 
 func _physics_process(delta: float) -> void:
+		
 	if !last_sleep_state and sleeping and rolling:
 		GameManager.set_hit_count(GameManager.current_hit_count + 1);
+		movement_sound_signal.emit(false)
+
 		rolling = false;
 	last_sleep_state = sleeping;
 	handle_height(delta);
@@ -112,6 +126,8 @@ func _on_body_entered(body: Node) -> void:
 		
 	else:
 		$AudioStreamPlayerSmallBonk.play()
+		
+		
 
 
 func flag_hit():
