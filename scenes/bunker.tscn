@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://de53sucdvbe4m"]
+[gd_scene load_steps=4 format=3 uid="uid://de53sucdvbe4m"]
 
 [ext_resource type="Script" uid="uid://dddmfw8pklsnu" path="res://scripts/bunker.gd" id="1_ewk1p"]
+[ext_resource type="PackedScene" uid="uid://b4gn6gsyd4xes" path="res://scenes/sand_particles.tscn" id="2_cyfgi"]
 [ext_resource type="AudioStream" uid="uid://cghht24rg6ii0" path="res://sound/sand_shrr_short.wav" id="2_ewk1p"]
 
 [node name="Bunker" type="Area2D"]
 linear_damp_space_override = 1
 linear_damp = 5.0
 script = ExtResource("1_ewk1p")
+sand_particles = ExtResource("2_cyfgi")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ewk1p")

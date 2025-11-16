@@ -39,6 +39,7 @@ position = Vector2(0, 1)
 texture = ExtResource("2_f7cbr")
 
 [node name="Ball" type="Sprite2D" parent="."]
+z_index = 1
 texture_filter = 1
 texture = ExtResource("2_ktgx5")
 

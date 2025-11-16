@@ -16,7 +16,6 @@ var tools_manager: Tools;
 var last_sleep_state: bool = true;
 var rolling: bool = false;
 var ball_sprite: Sprite2D;
-var ball_in_bunker: bool = false;
 
 
 func respawn() -> void:
