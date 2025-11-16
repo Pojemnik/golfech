@@ -84,6 +84,7 @@ func _input(event: InputEvent) -> void:
 		var impulse = -current_vector * tools_manager.get_current_bat_force()
 		apply_impulse(impulse);
 		rolling = true;
+		$Line2D.points = [];
 
 		movement_sound_signal.emit(rolling)
 		start_vector = null;
