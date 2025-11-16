@@ -6,5 +6,4 @@ func _ready() -> void:
 	
 
 func _on_finished() -> void:
-	print("Destroy particles");
 	queue_free();
