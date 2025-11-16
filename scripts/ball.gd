@@ -16,6 +16,7 @@ var tools_manager: Tools;
 var last_sleep_state: bool = true;
 var rolling: bool = false;
 var ball_sprite: Sprite2D;
+var in_hole: bool;
 
 
 func respawn() -> void:
@@ -24,6 +25,7 @@ func respawn() -> void:
 	stop();
 	teleported = false;
 	visible = true
+	in_hole = false;
 
 
 func teleport(pos: Vector2):
@@ -51,6 +53,7 @@ func _ready() -> void:
 	tools_manager = get_node("/root/Mainer/Main/ToolsManager");
 	GameManager.restarted_level.connect(respawn);
 	$Strength.visible = false
+	in_hole = false;
 	
 
 func _process(delta: float) -> void:
@@ -64,7 +67,7 @@ var vertical_height = 0.0;
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("lmb") and !rolling and tools_manager.selected_tool == 'club':
+	if event.is_action_pressed("lmb") and !rolling and tools_manager.selected_tool == 'club' and !in_hole:
 		start_vector = get_viewport().get_mouse_position();
 	
 	if start_vector and tools_manager.selected_tool == 'club':
@@ -130,6 +133,7 @@ func flag_hit():
 	visible = false
 	linear_velocity = Vector2.ZERO
 	GameManager.on_flag_reached();
+	in_hole = true;
 
 
 func handle_height(delta: float):
