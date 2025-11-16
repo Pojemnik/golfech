@@ -18,7 +18,7 @@
 [ext_resource type="Resource" uid="uid://uxo1ccn85mqg" path="res://level_data/level_dog.tres" id="14_tob4a"]
 [ext_resource type="Resource" uid="uid://25ggux654l50" path="res://level_data/level_teleport_water.tres" id="15_us6or"]
 [ext_resource type="Resource" uid="uid://dh1wl2ot8dhwn" path="res://level_data/level_free_play.tres" id="16_r775i"]
-[ext_resource type="Script" path="res://scripts/level_list.gd" id="17_1k2ls"]
+[ext_resource type="Script" uid="uid://3bdc38nfltwa" path="res://scripts/level_list.gd" id="17_1k2ls"]
 
 [resource]
 script = ExtResource("17_1k2ls")

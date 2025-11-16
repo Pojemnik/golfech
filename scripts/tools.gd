@@ -25,6 +25,7 @@ func _input(event: InputEvent):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED) 
 
 func _ready():
+	GameManager.restarted_level.connect(func(): _on_driver_pressed(false));
 	select_bat(0);
 	paintbrush.target_position = driver.global_position + Vector2(3,3)
 
@@ -42,8 +43,9 @@ func get_current_bat_force():
 func get_current_paint():
 	return selected_paint
 
-func _on_driver_pressed() -> void:
-	$SoundSelectPlayer.play()
+func _on_driver_pressed(sound: bool = false) -> void:
+	if sound:
+		$SoundSelectPlayer.play()
 	chipper.button_pressed = false
 	paintbrush.visible = false
 	select_bat(0);
