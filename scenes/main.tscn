@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=3 uid="uid://cir3h3iqn2nq0"]
 
-[ext_resource type="Shader" uid="uid://2kmpm3nsa0yf" path="res://hpx.gdshader" id="1_0xm2m"]
+[ext_resource type="Shader" path="res://hpx.gdshader" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://scripts/level_loader.gd" id="2_h2yge"]
 [ext_resource type="AudioStream" uid="uid://cf6c3cu0p2io1" path="res://sound/select.ogg" id="2_jscy8"]
 [ext_resource type="Resource" uid="uid://ddy3oor2b2hm2" path="res://level_data/final_level_list.tres" id="5_pm3ni"]

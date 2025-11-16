@@ -22,5 +22,5 @@
 
 [resource]
 script = ExtResource("17_1k2ls")
-levels = Array[ExtResource("1_1gfaq")]([ExtResource("2_nqpsn"), ExtResource("3_0wddd"), ExtResource("5_lw8ql"), ExtResource("4_nqpsn"), ExtResource("7_dk8e7"), ExtResource("4_8xdsf"), ExtResource("8_qh3nm"), ExtResource("6_tmf8e"), ExtResource("9_5xgdo"), ExtResource("10_qs3f7"), ExtResource("2_0wddd"), ExtResource("11_g1k68"), ExtResource("12_xow5t"), ExtResource("13_0sa5j"), ExtResource("14_tob4a"), ExtResource("15_us6or"), ExtResource("16_r775i")])
+levels = Array[ExtResource("1_1gfaq")]([ExtResource("2_nqpsn"), ExtResource("3_0wddd"), ExtResource("5_lw8ql"), ExtResource("4_8xdsf"), ExtResource("4_nqpsn"), ExtResource("6_tmf8e"), ExtResource("8_qh3nm"), ExtResource("9_5xgdo"), ExtResource("7_dk8e7"), ExtResource("10_qs3f7"), ExtResource("2_0wddd"), ExtResource("11_g1k68"), ExtResource("12_xow5t"), ExtResource("13_0sa5j"), ExtResource("15_us6or"), ExtResource("14_tob4a"), ExtResource("16_r775i")])
 metadata/_custom_type_script = "uid://3bdc38nfltwa"
