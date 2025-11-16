@@ -12,9 +12,10 @@ shader_parameter/color = Color(0, 0, 0, 0)
 font_color = Color(0, 0, 0, 1)
 
 [node name="LevelComplete" type="ColorRect"]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 0.92156863, 0)
 offset_right = 112.0
 offset_bottom = 112.0
+color = Color(1, 1, 0.92156863, 1)
 script = ExtResource("1_2e2w2")
 
 [node name="Label" type="Label" parent="."]

@@ -7,6 +7,7 @@ signal tween_end;
 var text_visible: bool;
 var bg_visible: bool;
 var next_text;
+const bg_color = Color("ffffeb");
 
 func on_tween_end():
 	tween_end.emit();
@@ -19,7 +20,7 @@ func set_shader_value(value):
 func show_with_text(text: String):
 	var tween = get_tree().create_tween();
 	$Label.text = text;
-	tween.tween_property(self, "modulate", Color.WHITE, tween_duration);
+	tween.tween_property(self, "modulate", bg_color, tween_duration);
 	tween.set_parallel(true);
 	tween.tween_method(set_shader_value, Color.TRANSPARENT, Color.BLACK, tween_duration);
 	tween.set_parallel(false);
