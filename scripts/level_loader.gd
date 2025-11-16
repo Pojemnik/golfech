@@ -38,7 +38,10 @@ func load_level(level_idx: int):
 
 
 func clear_level():
-	$LevelComplete.show_with_text("Level complete");
+	var level_complete_string = "Level complete";
+	if GameManager.current_hit_count < 2:
+		level_complete_string += "\nHole in one!"
+	$LevelComplete.show_with_text(level_complete_string);
 	await $LevelComplete.tween_end;
 	$LevelComplete.fade_out(true, false);
 	await $LevelComplete.tween_end;

@@ -1,27 +1,26 @@
-[gd_scene load_steps=54 format=3 uid="uid://cir3h3iqn2nq0"]
+[gd_scene load_steps=53 format=3 uid="uid://cir3h3iqn2nq0"]
 
-[ext_resource type="Shader" uid="uid://2kmpm3nsa0yf" path="res://hpx.gdshader" id="1_0xm2m"]
+[ext_resource type="Shader" path="res://hpx.gdshader" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://scripts/level_loader.gd" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://cl52acjotwrwi" path="res://scripts/level_data.gd" id="3_tbgi4"]
 [ext_resource type="Resource" uid="uid://cugfpqgkgni66" path="res://level_data/TestLevel.tres" id="4_85g3d"]
-[ext_resource type="Resource" uid="uid://cjryyp7eb0nfl" path="res://level_data/Level1.tres" id="4_tefeu"]
-[ext_resource type="Resource" uid="uid://25ggux654l50" path="res://level_data/Level2.tres" id="5_tipki"]
+[ext_resource type="Resource" uid="uid://25ggux654l50" path="res://level_data/level_teleport_water.tres" id="5_tipki"]
 [ext_resource type="Resource" uid="uid://ck18hjmkeg2w7" path="res://level_data/level_bunker_path.tres" id="6_2f3dj"]
-[ext_resource type="Resource" uid="uid://boo4t0v5pd1ih" path="res://level_data/Level3.tres" id="6_85g3d"]
+[ext_resource type="Resource" uid="uid://boo4t0v5pd1ih" path="res://level_data/level_lake.tres" id="6_85g3d"]
 [ext_resource type="Resource" uid="uid://cso2ht3s2thjx" path="res://level_data/level_dice.tres" id="6_j8jky"]
 [ext_resource type="Resource" uid="uid://bqsfo4k8ig6ei" path="res://level_data/level_waves.tres" id="6_kmb1v"]
 [ext_resource type="Resource" uid="uid://i2qiua06hbfc" path="res://level_data/level_empty.tres" id="6_og1vs"]
 [ext_resource type="Resource" uid="uid://1v8algajwytv" path="res://level_data/level_ocean.tres" id="6_vxglm"]
 [ext_resource type="Resource" uid="uid://cinc60f6ydud1" path="res://level_data/level_central_wall.tres" id="7_2wyq8"]
-[ext_resource type="Resource" uid="uid://uxo1ccn85mqg" path="res://level_data/Level4.tres" id="7_choun"]
+[ext_resource type="Resource" uid="uid://uxo1ccn85mqg" path="res://level_data/level_dog.tres" id="7_choun"]
 [ext_resource type="Script" uid="uid://b7b5aswqoe1vu" path="res://scripts/tools.gd" id="7_o6xl0"]
 [ext_resource type="Shader" uid="uid://diq3nytyo0g6r" path="res://scenes/label.gdshader" id="11_0ld40"]
-[ext_resource type="Script" uid="uid://bgv67k1wrjs52" path="res://scenes/ui_viewport.gd" id="11_gqmmt"]
+[ext_resource type="Script" path="res://scenes/ui_viewport.gd" id="11_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://bokutfbfm2gd1" path="res://ase/easel.png" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://de1vyy5bjy5r6" path="res://scenes/level_complete.tscn" id="11_yc10j"]
 [ext_resource type="FontFile" uid="uid://nbruq80r2xme" path="res://m5x7.ttf" id="12_0ld40"]
 [ext_resource type="Texture2D" uid="uid://cabhpl2exoi3s" path="res://tex/driver.png" id="12_trceg"]
-[ext_resource type="Script" uid="uid://bw0qt1recwgpl" path="res://scenes/sub_viewport.gd" id="12_yc10j"]
+[ext_resource type="Script" path="res://scenes/sub_viewport.gd" id="12_yc10j"]
 [ext_resource type="Texture2D" uid="uid://c2dos2y4jb1ep" path="res://tex/driver_selected.png" id="13_a8y0u"]
 [ext_resource type="Script" uid="uid://dbrpw63o7glhx" path="res://scenes/hit_counter.gd" id="13_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://2sfmfusnwfqk" path="res://tex/chipper.png" id="13_jkv2x"]
@@ -153,7 +152,7 @@ handle_input_locally = false
 size = Vector2i(112, 112)
 render_target_update_mode = 4
 script = ExtResource("2_h2yge")
-levels = Array[ExtResource("3_tbgi4")]([ExtResource("6_og1vs"), ExtResource("7_2wyq8"), ExtResource("6_85g3d"), ExtResource("15_yq6so"), ExtResource("6_vxglm"), ExtResource("4_tefeu"), ExtResource("17_tel4y"), ExtResource("6_2f3dj"), ExtResource("5_tipki"), ExtResource("6_j8jky"), ExtResource("18_qkpxi"), ExtResource("16_fv21b"), ExtResource("7_choun"), ExtResource("6_kmb1v"), ExtResource("4_85g3d")])
+levels = Array[ExtResource("3_tbgi4")]([ExtResource("6_og1vs"), ExtResource("7_2wyq8"), ExtResource("6_85g3d"), ExtResource("15_yq6so"), ExtResource("6_vxglm"), ExtResource("18_qkpxi"), ExtResource("17_tel4y"), ExtResource("6_2f3dj"), ExtResource("5_tipki"), ExtResource("6_j8jky"), ExtResource("18_qkpxi"), ExtResource("16_fv21b"), ExtResource("7_choun"), ExtResource("6_kmb1v"), ExtResource("4_85g3d")])
 
 [node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport"]
 offset_right = 112.0

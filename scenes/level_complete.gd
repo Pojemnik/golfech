@@ -1,6 +1,6 @@
 extends ColorRect
 
-@export var tween_duration: float = 1.0;
+@export var tween_duration: float = 2.0;
 
 signal tween_end;
 
@@ -49,7 +49,7 @@ func change_text(text: String):
 	var tween = get_tree().create_tween();
 	if text_visible:
 		next_text = text;
-		tween.tween_method(set_shader_value, Color.BLACK, Color.TRANSPARENT, tween_duration);
+		tween.tween_method(set_shader_value, Color.BLACK, Color.TRANSPARENT, tween_duration * 3);
 		tween.tween_callback(_change_text_internal);
 	else:
 		$Label.text = text;
