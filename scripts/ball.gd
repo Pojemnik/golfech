@@ -6,6 +6,8 @@ extends RigidBody2D
 @export var max_height_diff: float;
 @export var max_rolling_speed: float;
 
+signal restart
+
 var start_vector = null;
 var current_vector = Vector2.ZERO;
 var teleported = false;
@@ -15,6 +17,7 @@ var rolling: bool = false;
 var ball_sprite: Sprite2D;
 
 func respawn() -> void:
+	restart.emit()
 	teleport(spawnpoint.position)
 	stop();
 	teleported = false;

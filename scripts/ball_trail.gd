@@ -4,8 +4,12 @@ extends Line2D
 
 var ball: Sprite2D;
 
+func remove_trail():
+	points = []
+
 func _ready() -> void:
 	ball = $"../Ball/Ball";
+	ball.get_parent().restart.connect(remove_trail)
 
 func _physics_process(delta: float) -> void:
 	var pos = to_local(ball.global_position);
