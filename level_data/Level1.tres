@@ -7,4 +7,5 @@
 script = ExtResource("1_ixv6j")
 scene = ExtResource("1_0uk0n")
 hit_count = 4
+name = "Lost 1"
 metadata/_custom_type_script = "uid://cl52acjotwrwi"

@@ -7,4 +7,5 @@
 script = ExtResource("2_5lvwn")
 scene = ExtResource("1_bkhcq")
 hit_count = 4
+name = "Lost level"
 metadata/_custom_type_script = "uid://cl52acjotwrwi"

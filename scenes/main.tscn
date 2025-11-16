@@ -190,6 +190,21 @@ offset_right = 179.79999
 offset_bottom = 140.99998
 mouse_filter = 1
 
+[node name="LevelTitle" type="Label" parent="UiViewport/SubViewport/Control"]
+material = SubResource("ShaderMaterial_gqmmt")
+layout_mode = 0
+offset_left = 62.800003
+offset_top = -28.6
+offset_right = 157.6
+offset_bottom = 0.19999886
+theme_override_colors/font_color = Color(1, 0.34246424, 0.6213723, 1)
+theme_override_constants/line_spacing = -2
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("12_0ld40")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 2
+metadata/_edit_group_ = true
+
 [node name="HitCounter" type="Label" parent="UiViewport/SubViewport/Control"]
 material = SubResource("ShaderMaterial_gqmmt")
 layout_mode = 0

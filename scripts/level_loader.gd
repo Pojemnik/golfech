@@ -25,6 +25,7 @@ func load_level(level_idx: int):
 		$LevelComplete.show_with_text("Level %d\n%s" % [level_idx + 1, levels[level_idx].name])
 	await $LevelComplete.tween_end;
 	$LevelComplete.fade_out(true, true);
+	$"../../UiViewport/SubViewport/Control/LevelTitle".text = levels[level_idx].name;
 	if (level_idx >= levels.size()):
 		print("Game finished");
 		return;
