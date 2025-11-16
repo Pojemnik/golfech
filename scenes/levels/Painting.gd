@@ -1,5 +1,7 @@
 extends TileMapLayer
 
+var splat_scene = preload("res://scenes/splat.tscn")
+
 var tools_manager = null
 func _ready() -> void:
 	tools_manager = get_node("/root/Mainer/Main/ToolsManager");
@@ -7,6 +9,20 @@ func _ready() -> void:
 var last_mouse_position = null
 
 func draw_stroke(cell: Vector2i):
+	var splat = splat_scene.instantiate()
+	splat.emitting = true
+	splat.position = Vector2(cell.x, cell.y)
+	add_child(splat)
+	
+	if tools_manager.get_current_paint() == Vector2i(0,0):
+		splat.color = Color("cfff70")
+	if tools_manager.get_current_paint() == Vector2i(1,0):
+		splat.color = Color("ffe478")
+	if tools_manager.get_current_paint() == Vector2i(0,1):
+		splat.color = Color("4b5bab")
+	if tools_manager.get_current_paint() == Vector2i(1,1):
+		splat.color = Color("bd4882")
+	
 	for i in range(5):
 		for j in range(5):
 			set_cell(cell + Vector2i(i - 2, j - 2), 0, tools_manager.get_current_paint())

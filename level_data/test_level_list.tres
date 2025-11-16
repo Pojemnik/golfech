@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="LevelList" load_steps=7 format=3 uid="uid://cxjdrfs2xwoxm"]
 
 [ext_resource type="Script" uid="uid://cl52acjotwrwi" path="res://scripts/level_data.gd" id="1_7gpwy"]
-[ext_resource type="Script" uid="uid://3bdc38nfltwa" path="res://scripts/level_list.gd" id="2_h7rp8"]
-[ext_resource type="Resource" uid="uid://cugfpqgkgni66" path="res://level_data/TestLevel.tres" id="2_icp51"]
+[ext_resource type="Script" path="res://scripts/level_list.gd" id="2_h7rp8"]
+[ext_resource type="Resource" path="res://level_data/TestLevel.tres" id="2_icp51"]
 [ext_resource type="Resource" uid="uid://i2qiua06hbfc" path="res://level_data/level_empty.tres" id="3_avox3"]
 [ext_resource type="Resource" uid="uid://cinc60f6ydud1" path="res://level_data/level_central_wall.tres" id="4_xs6hc"]
 [ext_resource type="Resource" uid="uid://dh1wl2ot8dhwn" path="res://level_data/level_free_play.tres" id="5_avox3"]

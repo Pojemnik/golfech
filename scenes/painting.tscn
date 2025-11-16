@@ -1,0 +1,46 @@
+[gd_scene load_steps=11 format=3 uid="uid://dn03c2frgfj3k"]
+
+[ext_resource type="Shader" uid="uid://pqn51wpyjwdg" path="res://scenes/levels/painting.gdshader" id="1_bp4ab"]
+[ext_resource type="Texture2D" uid="uid://dknifdmmmguah" path="res://tex/bunker.png" id="2_3pf7n"]
+[ext_resource type="Texture2D" uid="uid://bs10bdt75fuer" path="res://tex/grass.png" id="3_moopi"]
+[ext_resource type="Texture2D" uid="uid://dlt672i0is6up" path="res://tex/tiles.png" id="4_jhvy0"]
+[ext_resource type="Texture2D" uid="uid://bsls1ckcqbvas" path="res://tex/wall.png" id="5_njiyx"]
+[ext_resource type="Texture2D" uid="uid://ciu6lfw3d0300" path="res://tex/water.png" id="6_bt0wa"]
+[ext_resource type="Script" uid="uid://5jma72wb4s3c" path="res://scenes/levels/Painting.gd" id="7_mvdiv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lha2r"]
+shader = ExtResource("1_bp4ab")
+shader_parameter/map = ExtResource("4_jhvy0")
+shader_parameter/grass = ExtResource("3_moopi")
+shader_parameter/bunker = ExtResource("2_3pf7n")
+shader_parameter/water = ExtResource("6_bt0wa")
+shader_parameter/wall = ExtResource("5_njiyx")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_brv20"]
+texture = ExtResource("4_jhvy0")
+texture_region_size = Vector2i(1, 1)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7d7pp"]
+tile_size = Vector2i(1, 1)
+sources/0 = SubResource("TileSetAtlasSource_brv20")
+
+[node name="Painting" type="SubViewportContainer"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_lha2r")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(112, 112)
+render_target_update_mode = 4
+
+[node name="TileMapLayer" type="TileMapLayer" parent="SubViewport"]
+tile_set = SubResource("TileSet_7d7pp")
+script = ExtResource("7_mvdiv")

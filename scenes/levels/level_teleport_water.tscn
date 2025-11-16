@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://jy4dwp4l4gor"]
+[gd_scene load_steps=10 format=3 uid="uid://jy4dwp4l4gor"]
 
 [ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_twycr"]
+[ext_resource type="PackedScene" uid="uid://dn03c2frgfj3k" path="res://scenes/painting.tscn" id="2_40ix6"]
 [ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://scenes/ball.tscn" id="3_e3qul"]
 [ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://scenes/bunker.tscn" id="4_dpm1s"]
 [ext_resource type="PackedScene" uid="uid://bil7klfgsihs8" path="res://scenes/wormhole.tscn" id="5_mcssb"]
@@ -18,6 +19,10 @@ distance = -112.0
 [node name="Playarea" type="Sprite2D" parent="."]
 texture = ExtResource("1_twycr")
 centered = false
+
+[node name="Painting" parent="." instance=ExtResource("2_40ix6")]
+offset_right = 112.0
+offset_bottom = 112.0
 
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(14, 56)

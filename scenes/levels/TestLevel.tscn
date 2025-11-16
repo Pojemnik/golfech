@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cb3a4n8s1tol4"]
+[gd_scene load_steps=11 format=3 uid="uid://dmxcjyr1ayk3k"]
 
 [ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_buy1m"]
 [ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://scenes/ball.tscn" id="2_4unv2"]
+[ext_resource type="PackedScene" uid="uid://dn03c2frgfj3k" path="res://scenes/painting.tscn" id="2_yynx6"]
 [ext_resource type="PackedScene" uid="uid://cf2gnqldjnayc" path="res://scenes/ball_trail.tscn" id="3_4unv2"]
 [ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://scenes/bunker.tscn" id="3_yynx6"]
 [ext_resource type="PackedScene" uid="uid://bil7klfgsihs8" path="res://scenes/wormhole.tscn" id="4_ktef7"]
@@ -19,6 +20,10 @@ distance = -112.0
 [node name="Playarea" type="Sprite2D" parent="."]
 texture = ExtResource("1_buy1m")
 centered = false
+
+[node name="Painting" parent="." instance=ExtResource("2_yynx6")]
+offset_right = 112.0
+offset_bottom = 112.0
 
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(104, 7)
