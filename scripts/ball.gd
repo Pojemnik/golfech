@@ -52,7 +52,6 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-		
 	_process_movement();
 
 var vertical_valocity = 0.0;
@@ -80,9 +79,7 @@ func _input(event: InputEvent) -> void:
 		vertical_valocity = 0.005 * impulse.length()
 		$AudioStreamPlayerBigBonk.play(0.09)
 
-			
-			
-			
+
 	if event.is_action_released("lmb"):
 		start_vector = null
 		
@@ -95,19 +92,17 @@ func _process_movement():
 
 
 func _physics_process(delta: float) -> void:
-		
 	if !last_sleep_state and sleeping and rolling:
 		GameManager.set_hit_count(GameManager.current_hit_count + 1);
 		movement_sound_signal.emit(false)
-
 		rolling = false;
+		
 	last_sleep_state = sleeping;
 	handle_height(delta);
 
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("sticky"):
-		("enterd sticky")
 		var dir = -linear_velocity.normalized()
 		var from = global_position - dir * 5;
 		var to = from + dir * 10.0
@@ -118,16 +113,9 @@ func _on_body_entered(body: Node) -> void:
 			global_position = result.position - dir * 2
 			
 		stop()
-
-	#if body.is_in_group("water"):
-		#respawn();
-		#GameManager.set_hit_count(GameManager.current_hit_count + 1);
-
-		
 	else:
 		$AudioStreamPlayerSmallBonk.play()
-		
-		
+
 
 
 func flag_hit():

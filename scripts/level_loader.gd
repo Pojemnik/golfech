@@ -8,7 +8,8 @@ var current_level_idx = null;
 
 
 func _ready() -> void:
-	GameManager.level_finished.connect(clear_level);
+	GameManager.level_finished.connect(func(): clear_level(true));
+	GameManager.flag_reached_without_finish.connect(func(): clear_level(false));
 	if !level:
 		load_level(0);
 
@@ -37,15 +38,24 @@ func load_level(level_idx: int):
 	GameManager.call_level_start(levels[level_idx].hit_count);
 
 
-func clear_level():
-	var level_complete_string = "Level complete";
-	if GameManager.current_hit_count < 2:
-		level_complete_string += "\nHole in one!"
-	$LevelComplete.show_with_text(level_complete_string);
+func clear_level(level_complete: bool):
+	$LevelComplete.show_with_text(get_level_end_message(level_complete));
 	await $LevelComplete.tween_end;
 	$LevelComplete.fade_out(true, false);
 	await $LevelComplete.tween_end;
 	if level:
 		level.queue_free();
 		level = null;
-	next_level();
+	if level_complete:
+		next_level();
+	else:
+		load_level(current_level_idx);
+
+
+func get_level_end_message(level_complete: bool):
+	if level_complete:
+		if GameManager.current_hit_count < 2:
+			return "Level complete\nHole in one!"
+		else:
+			return "Level complete";
+	return "Try again"; 
