@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dv3jvvqi837e3"]
+[gd_scene load_steps=12 format=3 uid="uid://dv3jvvqi837e3"]
 
 [ext_resource type="Script" uid="uid://ckfhh2dky166s" path="res://scripts/ball.gd" id="1_41u45"]
 [ext_resource type="Texture2D" uid="uid://dudcad3qnopsm" path="res://tex/ball_shadow.png" id="2_f7cbr"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://c605msjcqur3p" path="res://sound/bonk2.wav" id="4_4dx81"]
 [ext_resource type="AudioStream" uid="uid://dgwa6y6v70dic" path="res://sound/lower_wall_bonk.wav" id="5_eew57"]
 [ext_resource type="Texture2D" uid="uid://muxqjgdqvbow" path="res://tex/strength.png" id="6_jj7gd"]
+[ext_resource type="AudioStream" uid="uid://dpbgjrh2j4hmk" path="res://sound/wall_stick.ogg" id="6_v8l5b"]
 [ext_resource type="AudioStream" uid="uid://m02x17ea5e63" path="res://sound/stretch.ogg" id="7_fwo8l"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k77ap"]
@@ -56,6 +57,11 @@ stream = ExtResource("4_4dx81")
 [node name="AudioStreamPlayerSmallBonk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_eew57")
 volume_db = 3.666
+pitch_scale = 0.8
+
+[node name="AudioStreamPlayerStickyWall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_v8l5b")
+volume_db = -8.0
 pitch_scale = 0.8
 
 [node name="Strength" type="Node2D" parent="."]

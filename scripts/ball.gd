@@ -120,6 +120,7 @@ func _on_body_entered(body: Node) -> void:
 		
 		GameManager.set_hit_count(GameManager.current_hit_count + 1);
 		stop()
+		$AudioStreamPlayerStickyWall.play()
 	else:
 		$AudioStreamPlayerSmallBonk.play()
 
