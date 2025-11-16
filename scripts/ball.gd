@@ -115,6 +115,8 @@ func _on_body_entered(body: Node) -> void:
 
 
 func flag_hit():
+	visible = false
+	linear_velocity = Vector2.ZERO
 	GameManager.on_flag_reached();
 
 
