@@ -54,7 +54,7 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	if $Line2D.points.size() > 0:
+	if $Line2D.points.size() > 1:
 		$Strength.visible = true
 	else:
 		$Strength.visible = false
