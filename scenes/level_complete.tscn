@@ -31,3 +31,4 @@ text = "Level complete"
 label_settings = SubResource("LabelSettings_3oeyx")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2

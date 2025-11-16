@@ -21,9 +21,9 @@ func next_level():
 
 func load_level(level_idx: int):
 	if $LevelComplete.bg_visible:
-		$LevelComplete.change_text("Level %d\n%s" % [level_idx + 1, levels[level_idx].name])
+		$LevelComplete.change_text("Hole %d (%s)\npar %d" % [level_idx + 1, levels[level_idx].name, levels[level_idx].hit_count])
 	else:
-		$LevelComplete.show_with_text("Level %d\n%s" % [level_idx + 1, levels[level_idx].name])
+		$LevelComplete.show_with_text("Hole %d (%s)\npar %d" % [level_idx + 1, levels[level_idx].name, levels[level_idx].hit_count])
 	await $LevelComplete.tween_end;
 	$LevelComplete.fade_out(true, true);
 	$"../../UiViewport/SubViewport/Control/LevelTitle".text = levels[level_idx].name;
@@ -55,7 +55,7 @@ func clear_level(level_complete: bool):
 func get_level_end_message(level_complete: bool):
 	if level_complete:
 		if GameManager.current_hit_count < 1:
-			return "Level complete\nHole in one!"
+			return "Hole complete\nHole in one!"
 		else:
-			return "Level complete";
-	return "Try again"; 
+			return "Hole complete";
+	return "Reach par to complete hole"; 
