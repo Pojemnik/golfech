@@ -1,0 +1,122 @@
+[gd_scene load_steps=17 format=3 uid="uid://bpqsyi1seyswi"]
+
+[ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_5pytq"]
+[ext_resource type="Shader" uid="uid://pqn51wpyjwdg" path="res://scenes/levels/painting.gdshader" id="2_n8hal"]
+[ext_resource type="Texture2D" uid="uid://dknifdmmmguah" path="res://tex/bunker.png" id="3_ujv4a"]
+[ext_resource type="Texture2D" uid="uid://bs10bdt75fuer" path="res://tex/grass.png" id="4_eapgl"]
+[ext_resource type="Texture2D" uid="uid://dlt672i0is6up" path="res://tex/tiles.png" id="5_t0gbx"]
+[ext_resource type="Texture2D" uid="uid://bsls1ckcqbvas" path="res://tex/wall.png" id="6_kjj4n"]
+[ext_resource type="Texture2D" uid="uid://ciu6lfw3d0300" path="res://tex/water.png" id="7_dtu7h"]
+[ext_resource type="Script" uid="uid://5jma72wb4s3c" path="res://scenes/levels/Painting.gd" id="8_iqsb8"]
+[ext_resource type="PackedScene" uid="uid://cf2gnqldjnayc" path="res://scenes/ball_trail.tscn" id="9_6x766"]
+[ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://scenes/ball.tscn" id="10_cs6a1"]
+[ext_resource type="PackedScene" uid="uid://cdhr8fbix5ilj" path="res://scenes/flag.tscn" id="11_ot6jg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lha2r"]
+shader = ExtResource("2_n8hal")
+shader_parameter/map = ExtResource("5_t0gbx")
+shader_parameter/grass = ExtResource("4_eapgl")
+shader_parameter/bunker = ExtResource("3_ujv4a")
+shader_parameter/water = ExtResource("7_dtu7h")
+shader_parameter/wall = ExtResource("6_kjj4n")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_brv20"]
+texture = ExtResource("5_t0gbx")
+texture_region_size = Vector2i(1, 1)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7d7pp"]
+tile_size = Vector2i(1, 1)
+sources/0 = SubResource("TileSetAtlasSource_brv20")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8qnej"]
+distance = -112.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5pytq"]
+radius = 8.485283
+
+[node name="Level" type="Node2D"]
+
+[node name="Playarea" type="Sprite2D" parent="."]
+texture = ExtResource("1_5pytq")
+centered = false
+
+[node name="Painting" type="SubViewportContainer" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_lha2r")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="Painting"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(112, 112)
+render_target_update_mode = 4
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Painting/SubViewport"]
+tile_set = SubResource("TileSet_7d7pp")
+script = ExtResource("8_iqsb8")
+
+[node name="Spawnpoint" type="Node2D" parent="."]
+position = Vector2(16, 58)
+
+[node name="BallTrail" parent="." instance=ExtResource("9_6x766")]
+
+[node name="Ball" parent="." node_paths=PackedStringArray("spawnpoint") instance=ExtResource("10_cs6a1")]
+position = Vector2(16, 58)
+spawnpoint = NodePath("../Spawnpoint")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D3"]
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(112, 112)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(112, 112)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_8qnej")
+
+[node name="Flag" parent="." instance=ExtResource("11_ot6jg")]
+position = Vector2(96, 57)
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="."]
+position = Vector2(57, 57)
+rotation = -0.7853982
+scale = Vector2(0.9999998, 0.9999998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D11"]
+position = Vector2(7.0710692, -35.355347)
+shape = SubResource("CircleShape2D_5pytq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D11"]
+position = Vector2(-14.142138, -14.142136)
+shape = SubResource("CircleShape2D_5pytq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D11"]
+position = Vector2(-34.64824, 7.7781777)
+shape = SubResource("CircleShape2D_5pytq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D11"]
+position = Vector2(33.94113, -8.485283)
+shape = SubResource("CircleShape2D_5pytq")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D11"]
+position = Vector2(12.727924, 12.727926)
+shape = SubResource("CircleShape2D_5pytq")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D11"]
+position = Vector2(-7.7781754, 34.64824)
+shape = SubResource("CircleShape2D_5pytq")

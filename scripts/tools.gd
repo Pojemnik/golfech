@@ -16,6 +16,7 @@ var selected_paint = Vector2i(1, 0)
 
 func _ready():
 	select_bat(0);
+	paintbrush.target_position = driver.global_position
 
 func select_bat(idx: int):
 	selected_tool = 'club'
@@ -35,36 +36,40 @@ func _on_driver_pressed() -> void:
 	chipper.button_pressed = false
 	paintbrush.visible = false
 	select_bat(0);
+	paintbrush.visible = true
+	paintbrush.target_position = driver.global_position
 
 func _on_chipper_pressed() -> void:
 	driver.button_pressed = false
 	paintbrush.visible = false
 	select_bat(1);
+	paintbrush.visible = true
+	paintbrush.target_position = chipper.global_position
 
 func _on_grass_pressed() -> void:
 	paintbrush.visible = true
 	chipper.button_pressed = false
 	driver.button_pressed = false
 	select_paint(Vector2i(0,0))
-	paintbrush.global_position = grass_button.global_position + Vector2(-10.0, 3.5 )
+	paintbrush.target_position = grass_button.global_position
 
 func _on_bunker_pressed() -> void:
 	paintbrush.visible = true
 	chipper.button_pressed = false
 	driver.button_pressed = false
 	select_paint(Vector2i(1,0))
-	paintbrush.global_position = bunker_button.global_position + Vector2(-10.0, 3.5 )
+	paintbrush.target_position = bunker_button.global_position
 
 func _on_water_pressed() -> void:
 	paintbrush.visible = true
 	chipper.button_pressed = false
 	driver.button_pressed = false
 	select_paint(Vector2i(0,1))
-	paintbrush.global_position = water_button.global_position + Vector2(-10.0, 3.5 )
+	paintbrush.target_position = water_button.global_position
 
 func _on_wall_pressed() -> void:
 	paintbrush.visible = true
 	chipper.button_pressed = false
 	driver.button_pressed = false
 	select_paint(Vector2i(1,1))
-	paintbrush.global_position = wall_button.global_position + Vector2(-10.0, 3.5 )
+	paintbrush.target_position = wall_button.global_position

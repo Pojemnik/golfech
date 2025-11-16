@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cir3h3iqn2nq0"]
+[gd_scene load_steps=54 format=3 uid="uid://cir3h3iqn2nq0"]
 
 [ext_resource type="Shader" uid="uid://2kmpm3nsa0yf" path="res://hpx.gdshader" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://scripts/level_loader.gd" id="2_h2yge"]
@@ -8,6 +8,8 @@
 [ext_resource type="Resource" uid="uid://25ggux654l50" path="res://level_data/Level2.tres" id="5_tipki"]
 [ext_resource type="Resource" uid="uid://ck18hjmkeg2w7" path="res://level_data/level_bunker_path.tres" id="6_2f3dj"]
 [ext_resource type="Resource" uid="uid://boo4t0v5pd1ih" path="res://level_data/Level3.tres" id="6_85g3d"]
+[ext_resource type="Resource" uid="uid://cso2ht3s2thjx" path="res://level_data/level_dice.tres" id="6_j8jky"]
+[ext_resource type="Resource" uid="uid://bqsfo4k8ig6ei" path="res://level_data/level_waves.tres" id="6_kmb1v"]
 [ext_resource type="Resource" uid="uid://i2qiua06hbfc" path="res://level_data/level_empty.tres" id="6_og1vs"]
 [ext_resource type="Resource" uid="uid://1v8algajwytv" path="res://level_data/level_ocean.tres" id="6_vxglm"]
 [ext_resource type="Resource" uid="uid://cinc60f6ydud1" path="res://level_data/level_central_wall.tres" id="7_2wyq8"]
@@ -16,15 +18,14 @@
 [ext_resource type="Shader" uid="uid://diq3nytyo0g6r" path="res://scenes/label.gdshader" id="11_0ld40"]
 [ext_resource type="Script" uid="uid://bgv67k1wrjs52" path="res://scenes/ui_viewport.gd" id="11_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://bokutfbfm2gd1" path="res://ase/easel.png" id="11_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://de1vyy5bjy5r6" path="res://scenes/level_complete.tscn" id="11_yc10j"]
+[ext_resource type="PackedScene" path="res://scenes/level_complete.tscn" id="11_yc10j"]
 [ext_resource type="FontFile" uid="uid://nbruq80r2xme" path="res://m5x7.ttf" id="12_0ld40"]
 [ext_resource type="Texture2D" uid="uid://cabhpl2exoi3s" path="res://tex/driver.png" id="12_trceg"]
 [ext_resource type="Script" uid="uid://bw0qt1recwgpl" path="res://scenes/sub_viewport.gd" id="12_yc10j"]
 [ext_resource type="Texture2D" uid="uid://c2dos2y4jb1ep" path="res://tex/driver_selected.png" id="13_a8y0u"]
-[ext_resource type="Script" path="res://scenes/hit_counter.gd" id="13_gqmmt"]
+[ext_resource type="Script" uid="uid://dbrpw63o7glhx" path="res://scenes/hit_counter.gd" id="13_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://2sfmfusnwfqk" path="res://tex/chipper.png" id="13_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://d2xsat0wfcqm4" path="res://tex/chipper_selected.png" id="14_jbj1t"]
-[ext_resource type="Texture2D" uid="uid://dd3yi3ybc60h8" path="res://tex/paintbrush.png" id="15_jbj1t"]
 [ext_resource type="Resource" uid="uid://cfmgehiwxq6n2" path="res://level_data/level_house.tres" id="15_yq6so"]
 [ext_resource type="Resource" uid="uid://brvfk51pifj0b" path="res://level_data/level_fortress.tres" id="16_fv21b"]
 [ext_resource type="Texture2D" uid="uid://beowg2r3or33c" path="res://tex/grass_button.png" id="17_dp3eg"]
@@ -35,6 +36,8 @@
 [ext_resource type="Texture2D" uid="uid://bm75w04a1f5rk" path="res://tex/wall_button.png" id="23_og1vs"]
 [ext_resource type="BitMap" uid="uid://bvjx1vxqls3xu" path="res://tex/driver-mask.bmp" id="26_5q0nq"]
 [ext_resource type="BitMap" uid="uid://dyfyj6xocg4ws" path="res://tex/chipper_mask.bmp" id="29_dgi5k"]
+[ext_resource type="Texture2D" uid="uid://daqgkqaukqkc2" path="res://tex/cursor.png" id="36_kmb1v"]
+[ext_resource type="Script" uid="uid://cq27rvboethb2" path="res://scenes/cursor.gd" id="37_fuf3a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_choun"]
 shader = ExtResource("1_0xm2m")
@@ -45,6 +48,54 @@ shader = ExtResource("1_0xm2m")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gqmmt"]
 shader = ExtResource("11_0ld40")
 shader_parameter/color = Color(1, 1, 1, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_fuf3a"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_pibwh"]
+events = [SubResource("InputEventKey_fuf3a")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_pibwh"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_c6pm6"]
+events = [SubResource("InputEventKey_pibwh")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_5he1u"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_5poiv"]
+events = [SubResource("InputEventKey_5he1u")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_2cjbq"]
+device = -1
+keycode = 52
+unicode = 52
+
+[sub_resource type="Shortcut" id="Shortcut_chjal"]
+events = [SubResource("InputEventKey_2cjbq")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_cjqg0"]
+device = -1
+keycode = 53
+unicode = 53
+
+[sub_resource type="Shortcut" id="Shortcut_vchkt"]
+events = [SubResource("InputEventKey_cjqg0")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_txyw0"]
+device = -1
+keycode = 54
+unicode = 54
+
+[sub_resource type="Shortcut" id="Shortcut_vc5cj"]
+events = [SubResource("InputEventKey_txyw0")]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -102,7 +153,7 @@ handle_input_locally = false
 size = Vector2i(112, 112)
 render_target_update_mode = 4
 script = ExtResource("2_h2yge")
-levels = Array[ExtResource("3_tbgi4")]([ExtResource("18_qkpxi"), ExtResource("17_tel4y"), ExtResource("16_fv21b"), ExtResource("15_yq6so"), ExtResource("6_2f3dj"), ExtResource("6_vxglm"), ExtResource("6_og1vs"), ExtResource("7_2wyq8"), ExtResource("4_85g3d"), ExtResource("4_tefeu"), ExtResource("6_85g3d"), ExtResource("7_choun"), ExtResource("5_tipki")])
+levels = Array[ExtResource("3_tbgi4")]([ExtResource("6_og1vs"), ExtResource("7_2wyq8"), ExtResource("6_vxglm"), ExtResource("15_yq6so"), ExtResource("6_2f3dj"), ExtResource("6_j8jky"), ExtResource("18_qkpxi"), ExtResource("16_fv21b"), ExtResource("17_tel4y"), ExtResource("6_kmb1v"), ExtResource("4_85g3d"), ExtResource("4_tefeu"), ExtResource("6_85g3d"), ExtResource("7_choun"), ExtResource("5_tipki")])
 
 [node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport"]
 offset_right = 112.0
@@ -153,23 +204,35 @@ theme_override_font_sizes/font_size = 16
 script = ExtResource("13_gqmmt")
 
 [node name="Driver" type="TextureButton" parent="UiViewport/SubViewport/Control"]
-layout_mode = 0
-offset_left = 6.92
-offset_top = 15.080006
-offset_right = 29.920002
-offset_bottom = 111.08
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.037
+anchor_top = 0.135
+anchor_right = 0.037
+anchor_bottom = 0.135
+offset_left = -0.035999298
+offset_top = -0.039993286
+offset_right = 22.964003
+offset_bottom = 95.96001
 toggle_mode = true
+shortcut = SubResource("Shortcut_pibwh")
 texture_normal = ExtResource("12_trceg")
 texture_pressed = ExtResource("13_a8y0u")
 texture_click_mask = ExtResource("26_5q0nq")
 
 [node name="Chipper" type="TextureButton" parent="UiViewport/SubViewport/Control"]
-layout_mode = 0
-offset_left = 16.32
-offset_top = 3.2800026
-offset_right = 36.320004
-offset_bottom = 100.280014
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.087000005
+anchor_top = 0.029000001
+anchor_right = 0.087000005
+anchor_bottom = 0.029000001
+offset_left = -0.035999298
+offset_top = 0.032002926
+offset_right = 19.964005
+offset_bottom = 97.03201
 toggle_mode = true
+shortcut = SubResource("Shortcut_c6pm6")
 texture_normal = ExtResource("13_jkv2x")
 texture_pressed = ExtResource("14_jbj1t")
 texture_click_mask = ExtResource("29_dgi5k")
@@ -185,25 +248,30 @@ theme_override_constants/separation = 1
 
 [node name="Grass" type="TextureButton" parent="UiViewport/SubViewport/Control/VBoxContainer"]
 layout_mode = 2
+shortcut = SubResource("Shortcut_5poiv")
 texture_normal = ExtResource("17_dp3eg")
 
 [node name="Bunker" type="TextureButton" parent="UiViewport/SubViewport/Control/VBoxContainer"]
 layout_mode = 2
+shortcut = SubResource("Shortcut_chjal")
 texture_normal = ExtResource("18_0ld40")
 
 [node name="Water" type="TextureButton" parent="UiViewport/SubViewport/Control/VBoxContainer"]
 layout_mode = 2
+shortcut = SubResource("Shortcut_vchkt")
 texture_normal = ExtResource("22_y6deb")
 
 [node name="Wall" type="TextureButton" parent="UiViewport/SubViewport/Control/VBoxContainer"]
 layout_mode = 2
+shortcut = SubResource("Shortcut_vc5cj")
 texture_normal = ExtResource("23_og1vs")
 
 [node name="Paintbrush" type="Sprite2D" parent="UiViewport/SubViewport/Control"]
 texture_filter = 1
-position = Vector2(127, 36.6)
-texture = ExtResource("15_jbj1t")
-offset = Vector2(0.5, 0)
+position = Vector2(81.6, 44)
+texture = ExtResource("36_kmb1v")
+offset = Vector2(6, 13.5)
+script = ExtResource("37_fuf3a")
 
 [connection signal="pressed" from="UiViewport/SubViewport/Control/Driver" to="ToolsManager" method="_on_driver_pressed"]
 [connection signal="pressed" from="UiViewport/SubViewport/Control/Chipper" to="ToolsManager" method="_on_chipper_pressed"]
