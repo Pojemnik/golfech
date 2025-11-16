@@ -14,6 +14,16 @@ var selected_tool = 'club'
 var selected_club = null
 var selected_paint = Vector2i(1, 0)
 
+var fullscreen = false
+func _input(event: InputEvent):
+	if event.is_action_pressed("fullscreen"):
+		if not fullscreen:
+			fullscreen = true
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN) 
+		else:
+			fullscreen = false
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED) 
+
 func _ready():
 	select_bat(0);
 	paintbrush.target_position = driver.global_position + Vector2(3,3)

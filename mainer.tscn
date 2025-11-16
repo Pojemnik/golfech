@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://s3o7hagld8vm"]
+
+[ext_resource type="Script" uid="uid://0gejjevm3n1t" path="res://mainer.gd" id="1_cihw0"]
+[ext_resource type="PackedScene" uid="uid://cir3h3iqn2nq0" path="res://scenes/main.tscn" id="1_p0lja"]
+
+[node name="Mainer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cihw0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 3492.0
+offset_bottom = 2274.0
+color = Color(1, 0.7137255, 0.53333336, 1)
+
+[node name="Main" parent="." instance=ExtResource("1_p0lja")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 760.0
+offset_bottom = 880.0
+grow_horizontal = 1
+grow_vertical = 1

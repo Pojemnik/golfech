@@ -2,7 +2,7 @@ extends TileMapLayer
 
 var tools_manager = null
 func _ready() -> void:
-	tools_manager = get_node("/root/Main/ToolsManager");
+	tools_manager = get_node("/root/Mainer/Main/ToolsManager");
 
 var last_mouse_position = null
 

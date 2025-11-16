@@ -48,7 +48,7 @@ func stop() -> void:
 func _ready() -> void:
 	respawn();
 	ball_sprite = $Ball;
-	tools_manager = get_node("/root/Main/ToolsManager");
+	tools_manager = get_node("/root/Mainer/Main/ToolsManager");
 	GameManager.restarted_level.connect(respawn);
 	$Strength.visible = false
 	
