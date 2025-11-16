@@ -23,6 +23,7 @@ func respawn() -> void:
 	teleport(spawnpoint.position)
 	stop();
 	teleported = false;
+	visible = true
 
 
 func teleport(pos: Vector2):
