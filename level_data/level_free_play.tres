@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://dh1wl2ot8dhwn"]
+
+[ext_resource type="PackedScene" uid="uid://xpflnrc662i7" path="res://scenes/levels/level_free_play.tscn" id="1_awjlt"]
+[ext_resource type="Script" uid="uid://cl52acjotwrwi" path="res://scripts/level_data.gd" id="2_ish0g"]
+
+[resource]
+script = ExtResource("2_ish0g")
+scene = ExtResource("1_awjlt")
+name = "Free play"
+metadata/_custom_type_script = "uid://cl52acjotwrwi"

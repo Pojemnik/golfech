@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cir3h3iqn2nq0"]
+[gd_scene load_steps=54 format=3 uid="uid://cir3h3iqn2nq0"]
 
 [ext_resource type="Shader" uid="uid://2kmpm3nsa0yf" path="res://hpx.gdshader" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://scripts/level_loader.gd" id="2_h2yge"]
@@ -31,6 +31,7 @@
 [ext_resource type="Resource" uid="uid://b0iuj3ru1claw" path="res://level_data/level_desert.tres" id="17_tel4y"]
 [ext_resource type="Texture2D" uid="uid://c2l8vhv8wxmjv" path="res://tex/bunker_button.png" id="18_0ld40"]
 [ext_resource type="Resource" uid="uid://bnu02bxmuusvt" path="res://level_data/level_smile.tres" id="18_qkpxi"]
+[ext_resource type="Resource" uid="uid://dh1wl2ot8dhwn" path="res://level_data/level_free_play.tres" id="20_pibwh"]
 [ext_resource type="Texture2D" uid="uid://c7ehntm5xx4od" path="res://tex/water_button.png" id="22_y6deb"]
 [ext_resource type="Texture2D" uid="uid://bm75w04a1f5rk" path="res://tex/wall_button.png" id="23_og1vs"]
 [ext_resource type="BitMap" uid="uid://bvjx1vxqls3xu" path="res://tex/driver-mask.bmp" id="26_5q0nq"]
@@ -152,7 +153,7 @@ handle_input_locally = false
 size = Vector2i(112, 112)
 render_target_update_mode = 4
 script = ExtResource("2_h2yge")
-levels = Array[ExtResource("3_tbgi4")]([ExtResource("6_vxglm"), ExtResource("18_qkpxi"), ExtResource("16_fv21b"), ExtResource("5_tipki"), ExtResource("7_choun"), ExtResource("17_tel4y"), ExtResource("6_j8jky"), ExtResource("6_kmb1v"), ExtResource("4_85g3d"), ExtResource("6_2f3dj"), ExtResource("6_og1vs"), ExtResource("6_85g3d"), ExtResource("7_2wyq8"), ExtResource("18_qkpxi"), ExtResource("15_yq6so")])
+levels = Array[ExtResource("3_tbgi4")]([ExtResource("6_og1vs"), ExtResource("7_2wyq8"), ExtResource("6_85g3d"), ExtResource("15_yq6so"), ExtResource("6_vxglm"), ExtResource("18_qkpxi"), ExtResource("6_2f3dj"), ExtResource("17_tel4y"), ExtResource("5_tipki"), ExtResource("6_j8jky"), ExtResource("18_qkpxi"), ExtResource("16_fv21b"), ExtResource("7_choun"), ExtResource("6_kmb1v"), ExtResource("4_85g3d"), ExtResource("20_pibwh")])
 
 [node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport"]
 offset_right = 112.0

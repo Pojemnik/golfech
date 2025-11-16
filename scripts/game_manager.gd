@@ -23,9 +23,9 @@ func set_hit_count(count: int):
 
 func on_flag_reached():
 	if current_hit_count < max_hit_count and !level_end:
+		level_finished.emit();
 		current_hit_count = 0;
 		level_end = true;
-		level_finished.emit();
 	else:
 		flag_reached_without_finish.emit();
 
