@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://0ne6u08nopav"]
+
+[ext_resource type="Script" uid="uid://daew5c7rqpabk" path="res://scripts/splash_particles.gd" id="1_mhpbq"]
+
+[sub_resource type="Gradient" id="Gradient_eew57"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.34509805, 0.54901963, 1, 0.7372549)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jj7gd"]
+gradient = SubResource("Gradient_eew57")
+width = 1
+
+[sub_resource type="Curve" id="Curve_eew57"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.34839112), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jj7gd"]
+curve = SubResource("Curve_eew57")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fwo8l"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 30.0
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 100, 0)
+scale_curve = SubResource("CurveTexture_jj7gd")
+
+[node name="SplashParticles" type="GPUParticles2D"]
+emitting = false
+amount = 10
+texture = SubResource("GradientTexture1D_jj7gd")
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_fwo8l")
+script = ExtResource("1_mhpbq")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

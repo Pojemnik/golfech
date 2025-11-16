@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://de1vyy5bjy5r6"]
 
-[ext_resource type="Script" uid="uid://bmv70qk2ovd15" path="res://scenes/level_complete.gd" id="1_2e2w2"]
+[ext_resource type="Script" uid="uid://bmv70qk2ovd15" path="res://scripts/level_complete.gd" id="1_2e2w2"]
 [ext_resource type="Shader" uid="uid://diq3nytyo0g6r" path="res://scenes/label.gdshader" id="1_4x1ak"]
 [ext_resource type="FontFile" uid="uid://nbruq80r2xme" path="res://m5x7.ttf" id="2_2e2w2"]
 
