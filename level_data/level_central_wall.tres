@@ -7,5 +7,5 @@
 script = ExtResource("2_qnfe1")
 scene = ExtResource("1_1eyb5")
 hit_count = 3
-name = "Central wall"
+name = "Mark obstacles with paint"
 metadata/_custom_type_script = "uid://cl52acjotwrwi"

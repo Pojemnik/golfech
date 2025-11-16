@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://hpx.gdshader" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://cvc5y6y42peap" path="res://scripts/level_loader.gd" id="2_h2yge"]
-[ext_resource type="Resource" uid="uid://ddy3oor2b2hm2" path="res://scenes/levels/final_level_list.tres" id="5_pm3ni"]
+[ext_resource type="Resource" uid="uid://ddy3oor2b2hm2" path="res://level_data/final_level_list.tres" id="5_pm3ni"]
 [ext_resource type="Script" uid="uid://b7b5aswqoe1vu" path="res://scripts/tools.gd" id="7_o6xl0"]
 [ext_resource type="Shader" uid="uid://diq3nytyo0g6r" path="res://scenes/label.gdshader" id="11_0ld40"]
 [ext_resource type="Script" uid="uid://bgv67k1wrjs52" path="res://scripts/ui_viewport.gd" id="11_gqmmt"]
@@ -179,16 +179,17 @@ mouse_filter = 1
 [node name="LevelTitle" type="Label" parent="UiViewport/SubViewport/Control"]
 material = SubResource("ShaderMaterial_gqmmt")
 layout_mode = 0
-offset_left = 62.800003
+offset_left = 51.2
 offset_top = -28.6
 offset_right = 157.6
-offset_bottom = 0.19999886
+offset_bottom = -0.20000076
 theme_override_colors/font_color = Color(1, 0.34246424, 0.6213723, 1)
 theme_override_constants/line_spacing = -2
 theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("12_0ld40")
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 2
+autowrap_mode = 2
 metadata/_edit_group_ = true
 
 [node name="HitCounter" type="Label" parent="UiViewport/SubViewport/Control"]

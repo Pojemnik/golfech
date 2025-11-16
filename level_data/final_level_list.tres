@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="LevelList" load_steps=19 format=3 uid="uid://ddy3oor2b2hm2"]
+
+[ext_resource type="Script" uid="uid://cl52acjotwrwi" path="res://scripts/level_data.gd" id="1_1gfaq"]
+[ext_resource type="Resource" uid="uid://i2qiua06hbfc" path="res://level_data/level_empty.tres" id="2_nqpsn"]
+[ext_resource type="Resource" uid="uid://cinc60f6ydud1" path="res://level_data/level_central_wall.tres" id="3_0wddd"]
+[ext_resource type="Resource" uid="uid://boo4t0v5pd1ih" path="res://level_data/level_lake.tres" id="4_8xdsf"]
+[ext_resource type="Resource" uid="uid://bf66e5l5s7p1b" path="res://level_data/level_bunker_intro.tres" id="4_nqpsn"]
+[ext_resource type="Resource" uid="uid://cfmgehiwxq6n2" path="res://level_data/level_house.tres" id="5_lw8ql"]
+[ext_resource type="Resource" uid="uid://1v8algajwytv" path="res://level_data/level_ocean.tres" id="6_tmf8e"]
+[ext_resource type="Resource" uid="uid://bnu02bxmuusvt" path="res://level_data/level_smile.tres" id="7_dk8e7"]
+[ext_resource type="Resource" uid="uid://cjryyp7eb0nfl" path="res://level_data/level_spiral.tres" id="8_qh3nm"]
+[ext_resource type="Resource" uid="uid://ck18hjmkeg2w7" path="res://level_data/level_bunker_path.tres" id="9_5xgdo"]
+[ext_resource type="Resource" uid="uid://bqsfo4k8ig6ei" path="res://level_data/level_waves.tres" id="10_qs3f7"]
+[ext_resource type="Resource" uid="uid://cso2ht3s2thjx" path="res://level_data/level_dice.tres" id="11_g1k68"]
+[ext_resource type="Resource" uid="uid://brvfk51pifj0b" path="res://level_data/level_fortress.tres" id="12_xow5t"]
+[ext_resource type="Resource" uid="uid://b0iuj3ru1claw" path="res://level_data/level_desert.tres" id="13_0sa5j"]
+[ext_resource type="Resource" uid="uid://uxo1ccn85mqg" path="res://level_data/level_dog.tres" id="14_tob4a"]
+[ext_resource type="Resource" uid="uid://25ggux654l50" path="res://level_data/level_teleport_water.tres" id="15_us6or"]
+[ext_resource type="Resource" uid="uid://dh1wl2ot8dhwn" path="res://level_data/level_free_play.tres" id="16_r775i"]
+[ext_resource type="Script" uid="uid://3bdc38nfltwa" path="res://scripts/level_list.gd" id="17_1k2ls"]
+
+[resource]
+script = ExtResource("17_1k2ls")
+levels = Array[ExtResource("1_1gfaq")]([ExtResource("2_nqpsn"), ExtResource("3_0wddd"), ExtResource("5_lw8ql"), ExtResource("4_nqpsn"), ExtResource("7_dk8e7"), ExtResource("4_8xdsf"), ExtResource("8_qh3nm"), ExtResource("6_tmf8e"), ExtResource("9_5xgdo"), ExtResource("10_qs3f7"), ExtResource("11_g1k68"), ExtResource("12_xow5t"), ExtResource("13_0sa5j"), ExtResource("14_tob4a"), ExtResource("15_us6or"), ExtResource("16_r775i")])
+metadata/_custom_type_script = "uid://3bdc38nfltwa"
