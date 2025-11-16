@@ -35,3 +35,7 @@ func call_level_start(count: int):
 	current_hit_count = 0;
 	level_end = false;
 	start_level.emit(max_hit_count);
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("restart_level") and !level_end:
+		set_hit_count(0);

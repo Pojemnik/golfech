@@ -49,10 +49,10 @@ func _ready() -> void:
 	respawn();
 	ball_sprite = $Ball;
 	tools_manager = get_node("/root/Main/ToolsManager");
+	GameManager.restarted_level.connect(respawn);
 	
 
 func _process(delta: float) -> void:
-	_process_movement();
 	if $Line2D.points.size() > 0:
 		$Strength.visible = true
 	else:
@@ -93,13 +93,6 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_released("lmb"):
 		start_vector = null
-		
-	if event.is_action_pressed("restart_level"):
-		respawn();
-		GameManager.set_hit_count(0);
-
-func _process_movement():
-	pass
 
 
 func _physics_process(delta: float) -> void:
