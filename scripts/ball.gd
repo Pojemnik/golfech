@@ -115,7 +115,8 @@ func _on_body_entered(body: Node) -> void:
 		var result = get_world_2d().direct_space_state.intersect_ray(query_params);
 		if result:
 			global_position = result.position - dir * 2
-			
+		
+		GameManager.set_hit_count(GameManager.current_hit_count + 1);
 		stop()
 	else:
 		$AudioStreamPlayerSmallBonk.play()
