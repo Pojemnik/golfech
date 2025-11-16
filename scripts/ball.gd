@@ -104,12 +104,11 @@ func _on_body_entered(body: Node) -> void:
 			global_position = result.position - dir * 2
 			
 		stop()
-<<<<<<< Updated upstream
-=======
+
 	#if body.is_in_group("water"):
 		#respawn();
 		#GameManager.set_hit_count(GameManager.current_hit_count + 1);
->>>>>>> Stashed changes
+
 		
 	else:
 		$AudioStreamPlayerSmallBonk.play()
