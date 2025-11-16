@@ -1,7 +1,7 @@
 extends SubViewport
 class_name LevelLoader;
 
-@export var levels: Array[LevelData]
+@export var levels: LevelList;
 
 var level: Node = null;
 var current_level_idx = null;
@@ -22,21 +22,21 @@ func next_level():
 
 func load_level(level_idx: int):
 	if $LevelComplete.bg_visible:
-		$LevelComplete.change_text("Hole %d \"%s\"\npar %d" % [level_idx + 1, levels[level_idx].name, levels[level_idx].hit_count])
+		$LevelComplete.change_text("Hole %d \"%s\"\npar %d" % [level_idx + 1, levels.levels[level_idx].name, levels.levels[level_idx].hit_count])
 	else:
-		$LevelComplete.show_with_text("Hole %d \"%s\"\npar %d" % [level_idx + 1, levels[level_idx].name, levels[level_idx].hit_count])
+		$LevelComplete.show_with_text("Hole %d \"%s\"\npar %d" % [level_idx + 1, levels.levels[level_idx].name, levels.levels[level_idx].hit_count])
 	await $LevelComplete.tween_end;
 	$LevelComplete.fade_out(true, true);
 	current_level_idx = level_idx;
 	set_top_level_title();
-	if (level_idx >= levels.size()):
+	if (level_idx >= levels.levels.size()):
 		print("Game finished");
 		return;
-	var instance = levels[level_idx].scene.instantiate();
-	print("Load level ", levels[level_idx].scene.resource_path);
+	var instance = levels.levels[level_idx].scene.instantiate();
+	print("Load level ", levels.levels[level_idx].scene.resource_path);
 	$LevelParent.call_deferred("add_child", instance);
 	level = instance;
-	GameManager.call_level_start(levels[level_idx].hit_count);
+	GameManager.call_level_start(levels.levels[level_idx].hit_count);
 
 
 func clear_level():
@@ -62,4 +62,4 @@ func set_reset_text():
 	
 
 func set_top_level_title():
-	$"../../UiViewport/SubViewport/Control/LevelTitle".text = levels[current_level_idx].name;
+	$"../../UiViewport/SubViewport/Control/LevelTitle".text = levels.levels[current_level_idx].name;
