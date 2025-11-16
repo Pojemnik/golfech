@@ -54,7 +54,7 @@ func clear_level(level_complete: bool):
 
 func get_level_end_message(level_complete: bool):
 	if level_complete:
-		if GameManager.current_hit_count < 2:
+		if GameManager.current_hit_count < 1:
 			return "Level complete\nHole in one!"
 		else:
 			return "Level complete";
