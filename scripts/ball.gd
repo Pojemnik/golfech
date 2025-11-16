@@ -50,6 +50,7 @@ func _ready() -> void:
 	ball_sprite = $Ball;
 	tools_manager = get_node("/root/Main/ToolsManager");
 	GameManager.restarted_level.connect(respawn);
+	$Strength.visible = false
 	
 
 func _process(delta: float) -> void:

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ddku4xh1mlgxq" path="res://scripts/flag.gd" id="2_32e5v"]
 [ext_resource type="Texture2D" uid="uid://tuip2ha521qi" path="res://tex/flag_animated.png" id="2_q38m2"]
 [ext_resource type="Texture2D" uid="uid://dyi01tag6ndgr" path="res://tex/hole.png" id="2_tjkec"]
-[ext_resource type="AudioStream" uid="uid://jgid1rnr3h58" path="res://sound/flag_final.wav" id="3_q38m2"]
+[ext_resource type="AudioStream" uid="uid://2mgrbhi1qeta" path="res://sound/pole_hit.ogg" id="4_tjkec"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s5mf2"]
 atlas = ExtResource("2_q38m2")
@@ -123,6 +123,6 @@ scale = Vector2(0.3, 0.3)
 shape = SubResource("CircleShape2D_jfjt6")
 
 [node name="AudioStreamPlayerFlag" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_q38m2")
+stream = ExtResource("4_tjkec")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
