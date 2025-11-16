@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://boo4t0v5pd1ih"]
 
-[ext_resource type="PackedScene" uid="uid://diq7x8l08nkb8" path="res://scenes/levels/Level3.tscn" id="1_60xi7"]
+[ext_resource type="PackedScene" uid="uid://diq7x8l08nkb8" path="res://scenes/levels/level_lake.tscn" id="1_60xi7"]
 [ext_resource type="Script" uid="uid://cl52acjotwrwi" path="res://scripts/level_data.gd" id="2_qe71v"]
 
 [resource]
 script = ExtResource("2_qe71v")
 scene = ExtResource("1_60xi7")
-hit_count = 4
+hit_count = 2
+name = "Lake"
 metadata/_custom_type_script = "uid://cl52acjotwrwi"

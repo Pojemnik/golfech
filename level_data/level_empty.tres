@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("2_0xfvd")
 scene = ExtResource("1_nsdqa")
-hit_count = 3
+hit_count = 2
 name = "Hello"
 metadata/_custom_type_script = "uid://cl52acjotwrwi"

@@ -59,7 +59,7 @@ tile_set = SubResource("TileSet_7d7pp")
 script = ExtResource("8_gi2xi")
 
 [node name="Spawnpoint" type="Node2D" parent="."]
-position = Vector2(104, 7)
+position = Vector2(34, 58)
 
 [node name="BallTrail" parent="." instance=ExtResource("9_4gta4")]
 

@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://uxo1ccn85mqg"]
 
-[ext_resource type="PackedScene" uid="uid://b27yoieqat8ht" path="res://scenes/levels/Level4.tscn" id="1_bkhcq"]
+[ext_resource type="PackedScene" uid="uid://b27yoieqat8ht" path="res://scenes/levels/level_dog.tscn" id="1_bkhcq"]
 [ext_resource type="Script" uid="uid://cl52acjotwrwi" path="res://scripts/level_data.gd" id="2_5lvwn"]
 
 [resource]
 script = ExtResource("2_5lvwn")
 scene = ExtResource("1_bkhcq")
 hit_count = 4
-name = "Lost level"
+name = "Lost level 2"
 metadata/_custom_type_script = "uid://cl52acjotwrwi"

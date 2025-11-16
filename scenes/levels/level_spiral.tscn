@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bhoi4dhhi2nh5"]
+[gd_scene load_steps=20 format=3 uid="uid://bhoi4dhhi2nh5"]
 
 [ext_resource type="Texture2D" uid="uid://dlt672i0is6up" path="res://tex/tiles.png" id="1_m00rq"]
 [ext_resource type="Texture2D" uid="uid://dfvcm1lcluy14" path="res://tex/playarea.png" id="1_wwdpc"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dknifdmmmguah" path="res://tex/bunker.png" id="3_6owa4"]
 [ext_resource type="Script" uid="uid://5jma72wb4s3c" path="res://scenes/levels/Painting.gd" id="3_brv20"]
 [ext_resource type="PackedScene" uid="uid://dv3jvvqi837e3" path="res://scenes/ball.tscn" id="3_nc7oo"]
-[ext_resource type="PackedScene" uid="uid://de53sucdvbe4m" path="res://scenes/bunker.tscn" id="4_6x3wt"]
 [ext_resource type="Texture2D" uid="uid://bs10bdt75fuer" path="res://tex/grass.png" id="4_n5pya"]
 [ext_resource type="PackedScene" uid="uid://dbdteh5tvv4sh" path="res://scenes/water.tscn" id="5_76cw8"]
 [ext_resource type="PackedScene" uid="uid://bil7klfgsihs8" path="res://scenes/wormhole.tscn" id="5_3453u"]
@@ -83,9 +82,6 @@ rotation = -0.67284924
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_eqhe0")
 
-[node name="Bunker" parent="." instance=ExtResource("4_6x3wt")]
-position = Vector2(237, 196)
-
 [node name="Wormhole2" parent="." node_paths=PackedStringArray("output") instance=ExtResource("5_3453u")]
 position = Vector2(-75, -15)
 output = NodePath("../Wormhole")
@@ -124,7 +120,7 @@ scale = Vector2(6, 1)
 shape = SubResource("RectangleShape2D_8qnej")
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="Node2D"]
-position = Vector2(-3.9999962, 103)
+position = Vector2(6, 107)
 rotation = 0.7853982
 scale = Vector2(0.99999994, 0.99999994)
 
@@ -133,7 +129,7 @@ scale = Vector2(16, 1)
 shape = SubResource("RectangleShape2D_8qnej")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Node2D"]
-position = Vector2(3, 3)
+position = Vector2(4, 5)
 rotation = -0.7853982
 scale = Vector2(0.9999999, 0.9999999)
 
@@ -151,7 +147,7 @@ scale = Vector2(16, 1)
 shape = SubResource("RectangleShape2D_8qnej")
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="Node2D"]
-position = Vector2(118, 100)
+position = Vector2(108, 107)
 rotation = -0.7853982
 scale = Vector2(0.9999999, 0.9999999)
 
@@ -160,30 +156,30 @@ scale = Vector2(16, 1)
 shape = SubResource("RectangleShape2D_8qnej")
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Node2D"]
-position = Vector2(109.00001, 27.000002)
+position = Vector2(105, 29)
 rotation = 0.7853982
 scale = Vector2(0.9999998, 0.9999998)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D9"]
-scale = Vector2(2, 1)
+scale = Vector2(3, 1)
 shape = SubResource("RectangleShape2D_8qnej")
 
 [node name="StaticBody2D10" type="StaticBody2D" parent="Node2D"]
-position = Vector2(35.000004, 83.00001)
+position = Vector2(37.000004, 81)
 rotation = 0.7853982
 scale = Vector2(0.9999998, 0.9999998)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D10"]
-scale = Vector2(2, 1)
+scale = Vector2(3, 1)
 shape = SubResource("RectangleShape2D_8qnej")
 
 [node name="StaticBody2D11" type="StaticBody2D" parent="Node2D"]
-position = Vector2(35, 27)
+position = Vector2(37, 29)
 rotation = -0.7853982
 scale = Vector2(0.9999998, 0.9999998)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D11"]
-scale = Vector2(2, 1)
+scale = Vector2(3, 1)
 shape = SubResource("RectangleShape2D_8qnej")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
